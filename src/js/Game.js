@@ -6,7 +6,7 @@ var Phaser = scope.Phaser;
 
 ICTJAM3.Game = function () {
 };
-
+//test commit
 ICTJAM3.Game.prototype = {
 	create: function () {
         this.sprite = this.add.sprite(this.world.centerX, this.world.centerY, 'ok');
