@@ -29,7 +29,7 @@
             {"text": "(Continue or go back for supplies?)", "condition": "story", "condType": "equal", "condValue": "cave"}
         ],
     ]
-    "ph": [
+    "pa": [
         [
             {"text": "I am sorry to hear that, but lucky for you I am a dragon knight from a far away land, and I can take care of this dragon for you.", "condition": "ph", "condType": "equal", "condValue": "0"},
             {"text": "Of course, dragon hunting is a hard and expensive job. I would need some sort of compensation for this task…..", "condition": "ph", "condType": "equal", "condValue": "1"},
