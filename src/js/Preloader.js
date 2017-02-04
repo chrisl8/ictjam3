@@ -10,6 +10,8 @@ ICTJAM3.Preloader = function () {
 
 ICTJAM3.Preloader.prototype = {
 	preload: function () {
+	    this.game.load.json('ictGameJamScript', 'ictgamejamscript.json');
+
         this.game.load.spritesheet('mom', 'img/Mom.png', 32, 32);
         this.game.load.image('ok', 'img/ok.png');
         this.game.load.spritesheet('lucy', 'img/Lucy.png', 32, 32);
