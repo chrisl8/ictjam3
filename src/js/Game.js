@@ -164,6 +164,7 @@
         initializeMap: function (key, slide) {
             if (this.map) {
                 this.prevMap = this.map;
+                this.prevMapLayerGroup = this.mapLayerGroup;
                 this.prevMapLayer = this.mapLayer;
             }
             this.prevEntities = this.entities;
@@ -175,25 +176,30 @@
             this.entities.depthVal = 2;
             this.createMapEntities();
 
-            this.mapLayer = this.map.createLayer('Tile Layer 1');
-            this.world.sendToBack(this.mapLayer);
-            this.mapLayer.depthVal = 1;
+
+            this.mapLayerGroup = this.game.add.group();
+            this.mapLayerGroup.fixedToCamera = true;
+
+            this.mapLayer = this.map.createLayer('Tile Layer 1', this.game.width, this.game.height, this.mapLayerGroup);
+            this.map.createLayer('layer2', this.game.width, this.game.height, this.mapLayerGroup);
+            this.world.sendToBack(this.mapLayerGroup);
+            this.mapLayerGroup.depthVal = 1;
 
             this.world.sort('depthVal');
 
             if (slide) {
                 this.entities.x = this.world.width * slide.xDir;
                 this.entities.y = this.world.height * slide.yDir;
-                this.mapLayer.cameraOffset.x = this.world.width * slide.xDir;
-                this.mapLayer.cameraOffset.y = this.world.height * slide.yDir;
+                this.mapLayerGroup.cameraOffset.x = this.world.width * slide.xDir;
+                this.mapLayerGroup.cameraOffset.y = this.world.height * slide.yDir;
 
                 var prevMapTargetLoc = {x: (-1 * slide.xDir) * this.world.width, y: (-1 * slide.yDir) * this.world.height};
                 var targetX = (slide.xDir === 0) ? this.sprite.x : ((slide.xDir === 1) ? 18 : this.world.width - 18);
                 var targetY = (slide.yDir === 0) ? this.sprite.y : ((slide.yDir === 1) ? 18 : this.world.height - 18);
 
-                var t1 = this.add.tween(this.mapLayer.cameraOffset).to({x: 0, y:0}, 400, Phaser.Easing.Circular.InOut);
+                var t1 = this.add.tween(this.mapLayerGroup.cameraOffset).to({x: 0, y:0}, 400, Phaser.Easing.Circular.InOut);
                 var t2 = this.add.tween(this.entities).to({x: 0, y:0}, 400, Phaser.Easing.Circular.InOut);
-                var t3 = this.add.tween(this.prevMapLayer.cameraOffset).to(prevMapTargetLoc, 400, Phaser.Easing.Circular.InOut);
+                var t3 = this.add.tween(this.prevMapLayerGroup.cameraOffset).to(prevMapTargetLoc, 400, Phaser.Easing.Circular.InOut);
                 var t4 = this.add.tween(this.prevEntities).to(prevMapTargetLoc, 400, Phaser.Easing.Circular.InOut);
                 var t5 = this.add.tween(this.sprite).to({x: targetX, y: targetY}, 400, Phaser.Easing.Circular.InOut);
                 t3.onComplete.add(function () {
@@ -213,7 +219,7 @@
 
         removeOldMap: function () {
             if (this.prevMap) {
-                this.prevMapLayer.destroy();
+                this.prevMapLayerGroup.destroy(true);
                 this.prevMap.destroy();
             }
             if (this.prevEntities) {
