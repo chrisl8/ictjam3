@@ -10,7 +10,9 @@ var EXISTING_MAPS = [
     "0_1",
     "0_2",
     "0_3",
+    "-2_-0",
     "-2_-1",
+    
 ];
 
 ICTJAM3.MapLoader = function (loader) {
