@@ -103,6 +103,7 @@
                 }
                 this.facing = 'idle';
             }
+            var bubble = this.world.add(new ICTJAM3.SpeechBubble(this, this.world.centerX + 35, this.world.centerY + 5, 256, "This is some text which will be automagically wrapped."));
         }
     };
 })(this);
