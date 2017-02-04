@@ -9,7 +9,7 @@ ICTJAM3.Boot = function () {
 
 };
 
-ICTJAM3.INITIAL_SCALE = 1;
+ICTJAM3.INITIAL_SCALE = 2;
 
 ICTJAM3.Boot.prototype = {
 	create: function () {
