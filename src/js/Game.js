@@ -36,7 +36,8 @@
                     this.oneSecond = false;
                 } else {
                     this.hideText();
-                    this.text = this.game.add.text(this.game.world.centerX, this.game.world.centerY, "I need to find somone to talk too!", this.game.style);
+                    var words = "This is some text which will be automagically wrapped.";
+                    this.text = this.game.world.add(new ICTJAM3.SpeechBubble(this.game, this.game.world.centerX + 35, this.game.world.centerY + 5, 256, words));
                 }
                 var self = this;
                 clearTimeout(this.timeout);
@@ -73,7 +74,6 @@
             this.button = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
             this.world.sort('depthVal');
             this.paused = false;
-            var bubble = this.world.add(new ICTJAM3.SpeechBubble(this, this.world.centerX + 35, this.world.centerY + 5, 256, "This is some text which will be automagically wrapped."));
             this.button.onDown.add(function () {
                 this.sprite.chatBuddy.talk();
             }, this);
