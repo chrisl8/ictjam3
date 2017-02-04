@@ -6,7 +6,7 @@
 
     ICTJAM3.Npc = function (name, words, x, y, game) {
 
-        this.body = game.add.sprite(x, y, name, game);
+        this.body = game.add.sprite(x, y, name, 0);
         this.body.super = this;
         this.oneSecond = false;
         this.game = this;
