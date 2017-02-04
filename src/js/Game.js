@@ -20,8 +20,8 @@
             this.sprite = this.add.sprite(this.world.centerX, this.world.centerY, 'lucy', 0);
             this.sprite.depthVal = 2;
 
-            this.sprite.chatBuddy = this.npc[0] = new ICTJAM3.Npc('ok', "I should find someone to talk to", 500000, 500000, this);
-            this.npc['mom'] = new ICTJAM3.Npc('mom', "Lucy, than goodness you are ok!", 50, 50, this);
+            this.sprite.chatBuddy = this.npc[0] = new ICTJAM3.Npc('ok', 500000, 500000, this);
+            this.npc['mom'] = new ICTJAM3.Npc('mom', 50, 50, this);
             this.npc['mom'].depthVal = 2;
 
             this.sprite.anchor.setTo(0.5, 0.5);
@@ -59,10 +59,12 @@
             this.entities.depthVal = 2;
 
             this.stateSave.set('spawnC', 3);
+            // Test condition for mom
+            this.stateSave.set('mom', 1);
+
         },
 
         update: function () {
-            // this.sprite.animations.play('walk');
             this.game.debug.spriteInfo(this.sprite, 32, 32);
             if (this.paused) {
                 return;
@@ -222,7 +224,7 @@
         newEntity: function (data) {
             //dummy function
             if (data.type === "NPC") {
-                return new ICTJAM3.Npc(data.name, "I'm an NPC yo!", data.x, data.y, this);
+                return new ICTJAM3.Npc(data.name, data.x, data.y, this);
             }
             return new Phaser.Sprite(this.game, data.x, data.y, data.name);
         },

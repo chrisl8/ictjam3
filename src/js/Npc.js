@@ -4,7 +4,7 @@
     var ICTJAM3 = scope.ICTJAM3;
     var Phaser = scope.Phaser;
 
-    ICTJAM3.Npc = function (name, words, x, y, game) {
+    ICTJAM3.Npc = function (name, x, y, game) {
         Phaser.Sprite.call(this, game.game, x, y, name, 0);
         this.anchor.setTo(0.5, 0.5);
 
@@ -29,7 +29,30 @@
                 this.oneSecond = false;
             } else {
                 this.hideText();
-                this.text = game.world.add(new ICTJAM3.SpeechBubble(game, game.world.centerX + 35, game.world.centerY + 5, 256, words));
+                var characterTextOptions = game.cache.getJSON('ictGameJamScript')[name];
+                var textToSay = false;
+                for (var i = 0; i < characterTextOptions.length; i++) {
+                    if (characterTextOptions[i].hasOwnProperty('condition')) {
+                        var saveStateValue = game.stateSave.get(characterTextOptions[i].condition);
+                        if (typeof saveStateValue === 'undefined' || saveStateValue === null) {
+                            continue;
+                        }
+                        if (characterTextOptions[i].condType === 'greaterEqual') {
+                            if (saveStateValue < characterTextOptions[i].condVal) {
+                                textToSay = characterTextOptions[i].text;
+                                continue;
+                            }
+                        } else if (characterTextOptions[i].condType === 'equal') {
+                            if (saveStateValue !== characterTextOptions[i].condVal) {
+                                textToSay = characterTextOptions[i].text;
+                                continue;
+                            }
+                        }
+                    }
+                }
+                if (textToSay) {
+                    this.text = game.world.add(new ICTJAM3.SpeechBubble(game, game.world.centerX + 35, game.world.centerY + 5, 256, textToSay));
+                }
             }
             var self = this;
             clearTimeout(this.timeout);
