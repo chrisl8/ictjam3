@@ -41,7 +41,7 @@
             this.physics.enable(this.sprite, Phaser.Physics.ARCADE);
             this.physics.enable(this.npc['mom'].body, Phaser.Physics.ARCADE);
 
-            this.sprite.body.setSize(20, 32, 5, 16);
+            this.sprite.body.setSize(20, 32, -10, -16);
             this.sprite.body.drag.setTo(1000, 1000);
 
             this.cursors = this.input.keyboard.createCursorKeys();
