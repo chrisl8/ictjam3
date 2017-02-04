@@ -12,6 +12,7 @@ ICTJAM3.Preloader.prototype = {
 	preload: function () {
         this.game.load.spritesheet('mom', 'img/Mom.png', 32, 32);
         this.game.load.image('ok', 'img/ok.png');
+        this.game.load.spritesheet('lucy', 'img/lucy.png', 32, 32);
 
         this.game.load.image('temp_tiles', 'img/temp_tiles.png');
         this.game.load.tilemap('test_map', 'map/test_map.json', null, Phaser.Tilemap.TILED_JSON);

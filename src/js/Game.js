@@ -17,7 +17,7 @@
             this.npc = [];
             this.style = { font: "20px Arial", fill: "#ff0044", align: "center"  };
 
-            this.sprite = this.add.sprite(this.world.centerX, this.world.centerY, 'ok');
+            this.sprite = this.add.sprite(this.world.centerX, this.world.centerY, 'lucy', 0);
             this.sprite.depthVal = 2;
 
             this.sprite.chatBuddy = this.npc[0] = new ICTJAM3.Npc('ok', "I should find someone to talk to", 500000, 500000, this);
@@ -59,15 +59,13 @@
         },
 
         update: function () {
-            this.sprite.angle++;
-
             if (this.paused) {
                 return;
             }
 
             this.sprite.body.velocity.x = 0;
 
-            this.physics.arcade.collide(this.sprite, this.npc['mom'].body, function (a, b) {a.chatBuddy = b.super; console.log('collide')});
+            this.physics.arcade.collide(this.sprite, this.npc['mom'].body, function (a, b) {a.chatBuddy = b.super;});
 
             if (this.cursors.left.isDown)
             {
