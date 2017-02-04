@@ -1,6 +1,7 @@
 (function (scope) {
-
     "use strict";
+    // From: http://jsfiddle.net/lewster32/81pzgs4z/
+
     var ICTJAM3 = scope.ICTJAM3;
     var Phaser = scope.Phaser;
 
