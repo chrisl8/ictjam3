@@ -16,12 +16,17 @@
             var map = this.add.tilemap('test_map');
             map.addTilesetImage('temp_tiles', 'temp_tiles');
             this.npc = [];
+            this.chatBuddy;
+            this.style = { font: "65px Arial", fill: "#ff0044", align: "center"  };
 
             this.mapLayer = map.createLayer('Tile Layer 1');
 
             this.sprite = this.add.sprite(this.world.centerX, this.world.centerY, 'ok');
-            console.log(this.npc);
             this.npc['mom'] = this.add.sprite(this.world.centerX + 10, this.world.centerY + 10, 'mom');
+            this.npc['mom'].talk = () => {
+                var text = this.add.text(this.world.centerX, this.world.centerY, "Lucy, thank goodness you are ok!", this.style);
+                console.log('screw you!');
+            };
             this.sprite.anchor.setTo(0.5, 0.5);
 
             this.physics.startSystem(Phaser.Physics.ARCADE);
@@ -44,7 +49,7 @@
             this.sprite.angle++;
             this.sprite.body.velocity.x = 0;
 
-            this.physics.arcade.collide(this.sprite, this.npc['mom']);
+            this.physics.arcade.collide(this.sprite, this.npc['mom'], function (a, b) {a.chatBuddy = b; console.log('collide')});
 
             if (this.cursors.left.isDown)
             {
@@ -81,6 +86,9 @@
                     this.sprite.animations.play('right');
                     this.facing = 'right';
                 }
+            }
+            if(this.button.isDown) {
+                this.sprite.chatBuddy.talk();
             }
             if (this.facing != 'idle')
             {
