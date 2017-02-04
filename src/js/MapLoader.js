@@ -8,6 +8,9 @@ var EXISTING_MAPS = [
     "0_0",
     "1_0",
     "0_1",
+    "0_2",
+    "0_3",
+    "0_4",
 ];
 
 ICTJAM3.MapLoader = function (loader) {
