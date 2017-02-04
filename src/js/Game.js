@@ -9,6 +9,8 @@ ICTJAM3.Game = function () {
 
 ICTJAM3.Game.prototype = {
 	create: function () {
+	    this.stateSave = new ICTJAM3.StateSaver();
+	    console.log(this.stateSave);
         var facing = 'left';
         var cursors;
         var npc = [];
