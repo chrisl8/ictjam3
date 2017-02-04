@@ -9,6 +9,7 @@
         this.anchor.setTo(0.5, 0.5);
 
         game.physics.arcade.enable(this);
+        this.body.immovable = true;
 
         this.body.setSize(20, 20, 10, 16);
         this.body.drag.setTo(1000, 1000);
