@@ -9,35 +9,34 @@ ICTJAM3.Game = function () {
 
 ICTJAM3.Game.prototype = {
 	create: function () {
-        var player;
         var facing = 'left';
         var cursors;
-        var bg;
         var npc = [];
-        this.npc['shaman'] = this.add.sprite(this.world.centerX + 10, this.world.centerY + 10, 'shaman');
         var map = this.add.tilemap('test_map');
         map.addTilesetImage('temp_tiles', 'temp_tiles');
 
         this.mapLayer = map.createLayer('Tile Layer 1');
 
         this.sprite = this.add.sprite(this.world.centerX, this.world.centerY, 'ok');
+        console.log(npc);
+        npc['shaman'] = this.add.sprite(this.world.centerX + 10, this.world.centerY + 10, 'shaman');
         this.sprite.anchor.setTo(0.5, 0.5);
 
 
 
-            this.physics.startSystem(Phaser.Physics.ARCADE);
+        this.physics.startSystem(Phaser.Physics.ARCADE);
 
-            this.time.desiredFps = 30;
+        this.time.desiredFps = 30;
 
-            this.physics.enable(this.sprite, Phaser.Physics.ARCADE);
+        this.physics.enable(this.sprite, Phaser.Physics.ARCADE);
 
-            this.sprite.body.bounce.y = 0.2;
-            this.sprite.body.collideWorldBounds = true;
-            this.sprite.body.setSize(20, 32, 5, 16);
-            this.sprite.body.drag.setTo(1000, 1000);
+        this.sprite.body.bounce.y = 0.2;
+        this.sprite.body.collideWorldBounds = true;
+        this.sprite.body.setSize(20, 32, 5, 16);
+        this.sprite.body.drag.setTo(1000, 1000);
 
-            this.cursors = this.input.keyboard.createCursorKeys();
-            this.button = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+        this.cursors = this.input.keyboard.createCursorKeys();
+        this.button = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 	},
 
 	update: function () {
