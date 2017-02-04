@@ -6,7 +6,9 @@
     var Phaser = scope.Phaser;
 
     ICTJAM3.SpeechBubble = function (game, x, y, width, text) {
+        console.log(game);
         Phaser.Sprite.call(this, game, x, y);
+        console.log(this);
 
         // Some sensible minimum defaults
         width = width || 27;
