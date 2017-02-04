@@ -5,11 +5,16 @@
     var Phaser = scope.Phaser;
 
     ICTJAM3.Npc = function (name, words, x, y, game) {
+        Phaser.Sprite.call(this, game.game, x, y, name, 0);
+        this.anchor.setTo(0.5, 0.5);
 
-        this.body = game.add.sprite(x, y, name, 0);
-        this.body.super = this;
+        game.physics.arcade.enable(this);
+
+        this.body.setSize(20, 32, -10, -16);
+        this.body.drag.setTo(1000, 1000);
+
         this.oneSecond = false;
-        this.game = this;
+        //this.game = this;
         this.text = null;
         this.timeout = null;
         this.hideText = function(){
@@ -17,7 +22,7 @@
                 this.text.kill();
                 clearTimeout(this.timeout);
             }
-        }
+        };
         this.talk = function() {
             if(this.oneSecond == true){
                 this.hideText();
@@ -30,6 +35,9 @@
             clearTimeout(this.timeout);
             this.timeout = setTimeout(function(){self.hideText(); self.oneSecond = false;}, 9000);
             setTimeout(function(){self.oneSecond = true;}, 1000);
-        }
-    }
+        };
+    };
+
+    ICTJAM3.Npc.prototype = Object.create(Phaser.Sprite.prototype);
+    ICTJAM3.Npc.prototype.constructor = ICTJAM3.Npc;
 })(this);

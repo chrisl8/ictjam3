@@ -65,7 +65,7 @@
 
             this.sprite.body.velocity.x = 0;
 
-            this.physics.arcade.collide(this.sprite, this.npc['mom'].body, function (a, b) {a.chatBuddy = b.super;});
+            this.physics.arcade.collide(this.sprite, this.entities, function (a, b) {a.chatBuddy = b;});
 
             if (this.cursors.left.isDown)
             {
@@ -212,6 +212,9 @@
 
         newEntity: function (data) {
             //dummy function
+            if (data.type === "NPC") {
+                return new ICTJAM3.Npc(data.name, "I'm an NPC yo!", data.x, data.y, this);
+            }
             return new Phaser.Sprite(this.game, data.x, data.y, data.name);
         },
 
