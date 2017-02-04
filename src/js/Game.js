@@ -13,6 +13,8 @@ ICTJAM3.Game.prototype = {
         var facing = 'left';
         var cursors;
         var bg;
+        var npc = [];
+        this.npc['shaman'] = this.add.sprite(this.world.centerX + 10, this.world.centerY + 10, 'shaman');
 
         this.sprite = this.add.sprite(this.world.centerX, this.world.centerY, 'ok');
         this.sprite.anchor.setTo(0.5, 0.5);

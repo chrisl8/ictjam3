@@ -11,6 +11,7 @@ ICTJAM3.Preloader = function () {
 ICTJAM3.Preloader.prototype = {
 	preload: function () {
         this.game.load.image('ok', 'img/ok.png', 8, 8);
+        this.game.load.image('shaman', 'img/shaman.png', 8, 8);
 	},
 
 	create: function () {
