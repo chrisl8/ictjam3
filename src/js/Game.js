@@ -15,17 +15,40 @@
             var facing = 'left';
             var cursors;
             this.npc = [];
-            this.chatBuddy;
-            this.style = { font: "65px Arial", fill: "#ff0044", align: "center"  };
+            this.style = { font: "20px Arial", fill: "#ff0044", align: "center"  };
 
             this.sprite = this.add.sprite(this.world.centerX, this.world.centerY, 'ok');
             this.sprite.depthVal = 2;
+            this.sprite.chatBuddy = this.npc[0] = this.add.sprite(99999999, 99999999, 'ok');
+            this.npc[0].oneSecond = false;
+            this.npc[0].game = this;
+            this.npc[0].text = null;
+            this.npc[0].timeout = null;
+            this.npc[0].hideText = function(){
+                if(this.text) {
+                    this.text.kill();
+                    clearTimeout(this.timeout);
+                }
+            }
+            this.npc[0].talk = function() {
+                if(this.oneSecond == true){
+                    this.hideText();
+                    this.oneSecond = false;
+                } else {
+                    this.hideText();
+                    this.text = this.game.add.text(this.game.world.centerX, this.game.world.centerY, "I need to find somone to talk too!", this.game.style);
+                }
+                var self = this;
+                clearTimeout(this.timeout);
+                this.timeout = setTimeout(function(){self.hideText(); self.oneSecond = false;}, 9000);
+                setTimeout(function(){self.oneSecond = true;}, 1000);
+            }
             this.npc['mom'] = this.add.sprite(this.world.centerX + 10, this.world.centerY + 10, 'mom');
             this.npc['mom'].depthVal = 2;
             this.npc['mom'].talk = () => {
-                var text = this.add.text(this.world.centerX, this.world.centerY, "Lucy, thank goodness you are ok!", this.style);
-                console.log('screw you!');
+                this.text = this.add.text(this.world.centerX, this.world.centerY, "Lucy, thank goodness you are ok!", this.style);
             };
+
             this.sprite.anchor.setTo(0.5, 0.5);
 
             this.physics.startSystem(Phaser.Physics.ARCADE);
@@ -48,10 +71,12 @@
 
             this.cursors = this.input.keyboard.createCursorKeys();
             this.button = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
-
             this.world.sort('depthVal');
             this.paused = false;
             var bubble = this.world.add(new ICTJAM3.SpeechBubble(this, this.world.centerX + 35, this.world.centerY + 5, 256, "This is some text which will be automagically wrapped."));
+            this.button.onDown.add(function () {
+                this.sprite.chatBuddy.talk();
+            }, this);
         },
 
         update: function () {
@@ -102,7 +127,6 @@
                 }
             }
             if(this.button.isDown) {
-                this.sprite.chatBuddy.talk();
             }
             if (this.facing != 'idle')
             {
