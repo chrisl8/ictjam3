@@ -12,7 +12,6 @@ ICTJAM3.Game.prototype = {
         var player;
         var facing = 'left';
         var cursors;
-        var jumpButton;
         var bg;
 
         this.sprite = this.add.sprite(this.world.centerX, this.world.centerY, 'ok');
@@ -24,16 +23,15 @@ ICTJAM3.Game.prototype = {
 
             this.time.desiredFps = 30;
 
-            this.physics.arcade.gravity.y = 250;
-
             this.physics.enable(this.sprite, Phaser.Physics.ARCADE);
 
             this.sprite.body.bounce.y = 0.2;
             this.sprite.body.collideWorldBounds = true;
             this.sprite.body.setSize(20, 32, 5, 16);
+            this.sprite.body.drag.setTo(1000, 1000);
 
             this.cursors = this.input.keyboard.createCursorKeys();
-            this.jumpButton = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+            this.button = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 	},
 
 	update: function () {
@@ -67,36 +65,52 @@ ICTJAM3.Game.prototype = {
             }
 
         }
-        else
+        if (this.cursors.up.isDown)
         {
-            if (this.facing != 'idle')
+            this.sprite.body.velocity.y = -150;
+
+            if (this.facing != 'left')
             {
-                this.sprite.animations.stop();
+                this.sprite.animations.play('left');
+                this.facing = 'left';
 
-                if (this.facing == 'left')
-                {
-                    this.sprite.frame = 0;
+            }
 
-                }
-                else
-                {
-                    this.sprite.frame = 5;
+        }
+         if (this.cursors.down.isDown)
+        {
+            this.sprite.body.velocity.y = 150;
 
-                }
-
-                this.facing = 'idle';
+            if (this.facing != 'right')
+            {
+                this.sprite.animations.play('right');
+                this.facing = 'right';
 
             }
 
         }
 
-        if (this.jumpButton.isDown && this.sprite.body.onFloor())
+
+
+
+        if (this.facing != 'idle')
         {
-            this.sprite.body.velocity.y = -250;
+            this.sprite.animations.stop();
+
+            if (this.facing == 'left')
+            {
+                this.sprite.frame = 0;
+
+            }
+            else
+            {
+                this.sprite.frame = 5;
+
+            }
+
+            this.facing = 'idle';
+
         }
-
-
-
 
 
 
