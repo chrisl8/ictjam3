@@ -74,6 +74,9 @@
 
             this.physics.arcade.collide(this.sprite, this.entities, function (a, b) {a.chatBuddy = b;});
 
+            this.physics.arcade.collide(this.sprite, this.mapLayer);
+
+
             if (this.cursors.left.isDown)
             {
                 this.sprite.scale.setTo(-1, 1);
@@ -184,6 +187,8 @@
             this.map.createLayer('layer2', this.game.width, this.game.height, this.mapLayerGroup);
             this.world.sendToBack(this.mapLayerGroup);
             this.mapLayerGroup.depthVal = 1;
+
+            this.map.setCollisionBetween(3, 100);
 
             this.world.sort('depthVal');
 
