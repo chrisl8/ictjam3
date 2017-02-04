@@ -63,7 +63,7 @@
         },
 
         update: function () {
-            this.game.debug.spriteInfo(this.sprite, 32, 32);
+            //this.game.debug.spriteInfo(this.sprite, 32, 32);
             if (this.paused) {
                 return;
             }
