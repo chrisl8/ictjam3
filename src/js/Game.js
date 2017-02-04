@@ -194,6 +194,7 @@
             this.world.sort('depthVal');
 
             if (slide) {
+                this.sprite.chatBuddy = null;
                 this.entities.x = this.world.width * slide.xDir;
                 this.entities.y = this.world.height * slide.yDir;
                 this.mapLayerGroup.cameraOffset.x = this.world.width * slide.xDir;
