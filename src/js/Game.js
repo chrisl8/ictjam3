@@ -19,36 +19,10 @@
 
             this.sprite = this.add.sprite(this.world.centerX, this.world.centerY, 'ok');
             this.sprite.depthVal = 2;
-            this.sprite.chatBuddy = this.npc[0] = this.add.sprite(99999999, 99999999, 'ok');
-            this.npc[0].oneSecond = false;
-            this.npc[0].game = this;
-            this.npc[0].text = null;
-            this.npc[0].timeout = null;
-            this.npc[0].hideText = function(){
-                if(this.text) {
-                    this.text.kill();
-                    clearTimeout(this.timeout);
-                }
-            }
-            this.npc[0].talk = function() {
-                if(this.oneSecond == true){
-                    this.hideText();
-                    this.oneSecond = false;
-                } else {
-                    this.hideText();
-                    var words = "This is some text which will be automagically wrapped.";
-                    this.text = this.game.world.add(new ICTJAM3.SpeechBubble(this.game, this.game.world.centerX + 35, this.game.world.centerY + 5, 256, words));
-                }
-                var self = this;
-                clearTimeout(this.timeout);
-                this.timeout = setTimeout(function(){self.hideText(); self.oneSecond = false;}, 9000);
-                setTimeout(function(){self.oneSecond = true;}, 1000);
-            }
-            this.npc['mom'] = this.add.sprite(this.world.centerX + 10, this.world.centerY + 10, 'mom');
+
+            this.sprite.chatBuddy = this.npc[0] = new ICTJAM3.Npc('ok', "I should find someone to talk to", 500000, 500000, this);
+            this.npc['mom'] = new ICTJAM3.Npc('mom', "Lucy, than goodness you are ok!", 50, 50, this);
             this.npc['mom'].depthVal = 2;
-            this.npc['mom'].talk = () => {
-                this.text = this.add.text(this.world.centerX, this.world.centerY, "Lucy, thank goodness you are ok!", this.style);
-            };
 
             this.sprite.anchor.setTo(0.5, 0.5);
 
@@ -65,7 +39,7 @@
             this.time.desiredFps = 30;
 
             this.physics.enable(this.sprite, Phaser.Physics.ARCADE);
-            this.physics.enable(this.npc['mom'], Phaser.Physics.ARCADE);
+            this.physics.enable(this.npc['mom'].body, Phaser.Physics.ARCADE);
 
             this.sprite.body.setSize(20, 32, 5, 16);
             this.sprite.body.drag.setTo(1000, 1000);
@@ -88,7 +62,7 @@
 
             this.sprite.body.velocity.x = 0;
 
-            this.physics.arcade.collide(this.sprite, this.npc['mom'], function (a, b) {a.chatBuddy = b; console.log('collide')});
+            this.physics.arcade.collide(this.sprite, this.npc['mom'].body, function (a, b) {a.chatBuddy = b.super; console.log('collide')});
 
             if (this.cursors.left.isDown)
             {
