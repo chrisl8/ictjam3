@@ -20,10 +20,6 @@
             this.sprite = this.add.sprite(this.world.centerX, this.world.centerY, 'lucy', 0);
             this.sprite.depthVal = 2;
 
-            this.sprite.chatBuddy = this.npc[0] = new ICTJAM3.Npc('ok', 500000, 500000, this);
-            this.npc['mom'] = new ICTJAM3.Npc('mom', 50, 50, this);
-            this.npc['mom'].depthVal = 2;
-
             this.sprite.anchor.setTo(0.5, 0.5);
 
             this.physics.startSystem(Phaser.Physics.ARCADE);
@@ -40,7 +36,6 @@
 
             this.physics.enable(this.sprite, Phaser.Physics.ARCADE);
 
-            this.physics.enable(this.npc['mom'].body, Phaser.Physics.ARCADE);
 
             this.sprite.body.setSize(20, 20, 10, 16);
             this.sprite.body.drag.setTo(1000, 1000);
@@ -53,7 +48,9 @@
             this.world.sort('depthVal');
             this.paused = false;
             this.button.onDown.add(function () {
-                this.sprite.chatBuddy.talk();
+                if (this.sprite.chatBuddy) {
+                    this.sprite.chatBuddy.talk();
+                }
             }, this);
 
             this.entities = this.add.group();
