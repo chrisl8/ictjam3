@@ -43,6 +43,9 @@
 
             this.sprite.body.setSize(20, 32, -10, -16);
             this.sprite.body.drag.setTo(1000, 1000);
+            this.sprite.animations.add('walkSideways', [4, 5, 3], 9, false);
+            this.sprite.animations.add('walkUp', [7, 8, 7], 9, false);
+            this.sprite.animations.add('walkDown', [1, 2, 0], 9, false);
 
             this.cursors = this.input.keyboard.createCursorKeys();
             this.button = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
@@ -59,6 +62,8 @@
         },
 
         update: function () {
+            // this.sprite.animations.play('walk');
+            this.game.debug.spriteInfo(this.sprite, 32, 32);
             if (this.paused) {
                 return;
             }
@@ -69,37 +74,41 @@
 
             if (this.cursors.left.isDown)
             {
+                this.sprite.scale.setTo(-1, 1);
+                this.sprite.animations.play('walkSideways');
                 this.sprite.body.velocity.x = -150;
                 if (this.facing != 'left')
                 {
-                    this.sprite.animations.play('left');
                     this.facing = 'left';
                 }
             }
             else if (this.cursors.right.isDown)
             {
+                this.sprite.scale.setTo(1, 1);
+                this.sprite.animations.play('walkSideways');
                 this.sprite.body.velocity.x = 150;
                 if (this.facing != 'right')
                 {
-                    this.sprite.animations.play('right');
                     this.facing = 'right';
                 }
             }
             if (this.cursors.up.isDown)
             {
+                this.sprite.scale.setTo(1, 1);
+                this.sprite.animations.play('walkUp');
                 this.sprite.body.velocity.y = -150;
                 if (this.facing != 'left')
                 {
-                    this.sprite.animations.play('left');
                     this.facing = 'left';
                 }
             }
             if (this.cursors.down.isDown)
             {
+                this.sprite.scale.setTo(1, 1);
+                this.sprite.animations.play('walkDown');
                 this.sprite.body.velocity.y = 150;
                 if (this.facing != 'right')
                 {
-                    this.sprite.animations.play('right');
                     this.facing = 'right';
                 }
             }
@@ -107,14 +116,14 @@
             }
             if (this.facing != 'idle')
             {
-                this.sprite.animations.stop();
+                // this.sprite.animations.stop();
                 if (this.facing == 'left')
                 {
-                    this.sprite.frame = 0;
+                    // this.sprite.frame = 0;
                 }
                 else
                 {
-                    this.sprite.frame = 5;
+                    // this.sprite.frame = 5;
                 }
                 this.facing = 'idle';
             }
