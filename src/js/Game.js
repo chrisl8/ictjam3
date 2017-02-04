@@ -51,6 +51,11 @@
             this.button.onDown.add(function () {
                 this.sprite.chatBuddy.talk();
             }, this);
+
+            this.entities = this.add.group();
+            this.entities.depthVal = 2;
+
+            this.stateSave.set('spawnC', 3);
         },
 
         update: function () {
@@ -152,8 +157,14 @@
                 this.prevMap = this.map;
                 this.prevMapLayer = this.mapLayer;
             }
+            this.prevEntities = this.entities;
+
             this.map = this.add.tilemap('map_' + key);
             this.map.addTilesetImage('temp_tiles', 'temp_tiles');
+
+            this.entities = this.add.group();
+            this.entities.depthVal = 2;
+            this.createMapEntities();
 
             this.mapLayer = this.map.createLayer('Tile Layer 1');
             this.world.sendToBack(this.mapLayer);
@@ -162,15 +173,21 @@
             this.world.sort('depthVal');
 
             if (slide) {
+                this.entities.x = this.world.width * slide.xDir;
+                this.entities.y = this.world.height * slide.yDir;
                 this.mapLayer.cameraOffset.x = this.world.width * slide.xDir;
                 this.mapLayer.cameraOffset.y = this.world.height * slide.yDir;
 
+                var prevMapTargetLoc = {x: (-1 * slide.xDir) * this.world.width, y: (-1 * slide.yDir) * this.world.height};
                 var targetX = (slide.xDir === 0) ? this.sprite.x : ((slide.xDir === 1) ? 18 : this.world.width - 18);
                 var targetY = (slide.yDir === 0) ? this.sprite.y : ((slide.yDir === 1) ? 18 : this.world.height - 18);
+
                 var t1 = this.add.tween(this.mapLayer.cameraOffset).to({x: 0, y:0}, 400, Phaser.Easing.Circular.InOut);
-                var t2 = this.add.tween(this.prevMapLayer.cameraOffset).to({x: (-1 * slide.xDir) * this.world.width, y: (-1 * slide.yDir) * this.world.height}, 400, Phaser.Easing.Circular.InOut);
-                var t3 = this.add.tween(this.sprite).to({x: targetX, y: targetY}, 400, Phaser.Easing.Exponential.InOut);
-                t2.onComplete.add(function () {
+                var t2 = this.add.tween(this.entities).to({x: 0, y:0}, 400, Phaser.Easing.Circular.InOut);
+                var t3 = this.add.tween(this.prevMapLayer.cameraOffset).to(prevMapTargetLoc, 400, Phaser.Easing.Circular.InOut);
+                var t4 = this.add.tween(this.prevEntities).to(prevMapTargetLoc, 400, Phaser.Easing.Circular.InOut);
+                var t5 = this.add.tween(this.sprite).to({x: targetX, y: targetY}, 400, Phaser.Easing.Circular.InOut);
+                t3.onComplete.add(function () {
                     this.paused = false;
                     this.removeOldMap();
                 }, this);
@@ -178,6 +195,8 @@
                 t1.start();
                 t2.start();
                 t3.start();
+                t4.start();
+                t5.start();
             } else {
                 this.removeOldMap();
             }
@@ -188,6 +207,43 @@
                 this.prevMapLayer.destroy();
                 this.prevMap.destroy();
             }
+            if (this.prevEntities) {
+                this.prevEntities.destroy(true);
+            }
+        },
+
+        newEntity: function (data) {
+            //dummy function
+            return new Phaser.Sprite(this.game, data.x, data.y, data.name);
+        },
+
+        createMapEntities: function () {
+            if (!this.map.objects.hasOwnProperty('entities')) {
+                return;
+            }
+            var entities = this.map.objects.entities;
+
+            entities.forEach(function (ent) {
+                console.log(ent);
+                var conditionData = ent.properties;
+                if (conditionData.hasOwnProperty('condition')) {
+                    var val = this.stateSave.get(conditionData.condition);
+                    if (typeof val === 'undefined' || val === null) {
+                        return;
+                    }
+                    if (conditionData.condType === 'greaterEqual') {
+                        if (val < conditionData.condVal) {
+                            return;
+                        }
+                    } else if (conditionData.condType === 'equal') {
+                        if (val !== conditionData.condVal) {
+                            return;
+                        }
+                    }
+                }
+                var entSprite = this.newEntity(ent);
+                this.entities.add(entSprite);
+            }, this);
         }
     };
 
