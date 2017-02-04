@@ -249,7 +249,6 @@
             var entities = this.map.objects.entities;
 
             entities.forEach(function (ent) {
-                console.log(ent);
                 var conditionData = ent.properties;
                 if (conditionData.hasOwnProperty('condition')) {
                     var val = this.stateSave.get(conditionData.condition);
