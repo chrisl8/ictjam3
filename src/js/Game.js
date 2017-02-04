@@ -39,9 +39,10 @@
             this.time.desiredFps = 30;
 
             this.physics.enable(this.sprite, Phaser.Physics.ARCADE);
+
             this.physics.enable(this.npc['mom'].body, Phaser.Physics.ARCADE);
 
-            this.sprite.body.setSize(20, 32, -10, -16);
+            this.sprite.body.setSize(20, 20, 10, 16);
             this.sprite.body.drag.setTo(1000, 1000);
             this.sprite.animations.add('walkSideways', [4, 5, 3], 9, false);
             this.sprite.animations.add('walkUp', [7, 8, 7], 9, false);

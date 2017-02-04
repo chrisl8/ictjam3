@@ -10,7 +10,7 @@
 
         game.physics.arcade.enable(this);
 
-        this.body.setSize(20, 32, -10, -16);
+        this.body.setSize(20, 20, 10, 16);
         this.body.drag.setTo(1000, 1000);
 
         this.oneSecond = false;
