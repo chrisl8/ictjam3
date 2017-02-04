@@ -184,7 +184,9 @@
             this.mapLayerGroup.fixedToCamera = true;
 
             this.mapLayer = this.map.createLayer('Tile Layer 1', this.game.width, this.game.height, this.mapLayerGroup);
-            this.map.createLayer('layer2', this.game.width, this.game.height, this.mapLayerGroup);
+            if (map.getLayerIndex('layer2') !== null) {
+                this.map.createLayer('layer2', this.game.width, this.game.height, this.mapLayerGroup);
+            }
             this.world.sendToBack(this.mapLayerGroup);
             this.mapLayerGroup.depthVal = 1;
 
