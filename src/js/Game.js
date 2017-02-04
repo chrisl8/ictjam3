@@ -17,7 +17,7 @@
             this.npc = [];
             this.style = { font: "20px Arial", fill: "#ff0044", align: "center"  };
 
-            this.sprite = this.add.sprite(this.world.centerX, this.world.centerY, 'lucy', 0);
+            this.sprite = this.add.sprite(this.world.centerX - 250, this.world.centerY, 'lucy', 0);
             this.sprite.depthVal = 2;
 
             this.sprite.anchor.setTo(0.5, 0.5);
@@ -25,7 +25,7 @@
             this.physics.startSystem(Phaser.Physics.ARCADE);
 
             if (!this.stateSave.get('currentMap')) {
-                this.stateSave.set('currentMap', {x: 0, y: 0});
+                this.stateSave.set('currentMap', {x: -1, y: 1});
             }
             var curWorldCoords = this.stateSave.get('currentMap');
             this.mapLoader.loadMapAtCoord(curWorldCoords.x, curWorldCoords.y, function (mapName) {
@@ -56,9 +56,8 @@
             this.entities = this.add.group();
             this.entities.depthVal = 2;
 
-            this.stateSave.set('spawnC', 3);
             // Test condition for mom
-            this.stateSave.set('mom', 1);
+            this.stateSave.set('mom', 0);
 
         },
 
