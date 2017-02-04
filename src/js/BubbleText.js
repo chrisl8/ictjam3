@@ -15,7 +15,7 @@
         var height = 18;
 
         // Set up our text and run our custom wrapping routine on it
-        this.bitmapText = this.game.make.bitmapText(x + 12, y + 4, '8bitoperator', text, 22);
+        this.bitmapText = this.game.make.bitmapText(x + 12, y + 4, '8bitoperator', text, 11);
         ICTJAM3.SpeechBubble.wrapBitmapText(this.bitmapText, width);
 
         // Calculate the width and height needed for the edges
