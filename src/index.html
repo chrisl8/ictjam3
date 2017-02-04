@@ -16,7 +16,7 @@
         <div id="gameContainer"></div>
         <script type="text/javascript">
             window.onload = function() {
-                window.gameInstance = new Phaser.Game(208, 144, Phaser.WEBGL_MULTI, 'gameContainer');
+                window.gameInstance = new Phaser.Game(768, 448, Phaser.WEBGL_MULTI, 'gameContainer');
                 window.gameInstance.state.add('Boot', ICTJAM3.Boot);
                 window.gameInstance.state.start('Boot');
             };

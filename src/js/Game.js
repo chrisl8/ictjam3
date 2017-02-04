@@ -6,13 +6,17 @@ var Phaser = scope.Phaser;
 
 ICTJAM3.Game = function () {
 };
-//test commit
+
 ICTJAM3.Game.prototype = {
 	create: function () {
         var player;
         var facing = 'left';
         var cursors;
         var bg;
+        var map = this.add.tilemap('test_map');
+        map.addTilesetImage('temp_tiles', 'temp_tiles');
+
+        this.mapLayer = map.createLayer('Tile Layer 1');
 
         this.sprite = this.add.sprite(this.world.centerX, this.world.centerY, 'ok');
         this.sprite.anchor.setTo(0.5, 0.5);
