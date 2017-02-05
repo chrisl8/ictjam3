@@ -87,7 +87,6 @@
                     this.leaveChat();
                 }
             } else {
-                console.log('no dialog already');
                 var targetEnt = this.findCloseNPC();
                 if (targetEnt) {
                     this.chatTarget = targetEnt;
@@ -107,7 +106,7 @@
 
         doChat: function () {
             this.chatTarget.talk();
-            if (!this.currentDialogBox.hasOwnProperty('text') && this.currentDialogBox.hasOwnProperty('talkNext')) {
+            if ((!this.currentDialogBox.hasOwnProperty('text') || this.currentDialogBox.text === null) && this.currentDialogBox.hasOwnProperty('talkNext')) {
                 this.attemptChat();
             }
         },
