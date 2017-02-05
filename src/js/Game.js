@@ -17,6 +17,7 @@
             this.style = { font: "20px Arial", fill: "#ff0044", align: "center"  };
 
             this.sprite = this.add.sprite(this.world.centerX - 250, this.world.centerY, 'lucy', 0);
+            this.sprite.superspeed = 1;
             this.sprite.depthVal = 2;
 
             this.sprite.anchor.setTo(0.5, 0.5);
@@ -51,6 +52,14 @@
             this.chatTarget = null;
             this.button.onDown.add(function () {
                 this.attemptChat();
+            }, this);
+
+            this.TurboButton = this.input.keyboard.addKey(Phaser.Keyboard.S);
+            this.TurboButton.onDown.add(function () {
+                this.sprite.superspeed += 1;
+                if (this.sprite.superspeed > 6) {
+                    this.sprite.superspeed = 1;
+                }
             }, this);
 
             this.movementEnabled = true;
@@ -137,7 +146,7 @@
                 {
                     this.sprite.scale.setTo(-1, 1);
                     this.sprite.animations.play('walkSideways');
-                    this.sprite.body.velocity.x = -150;
+                    this.sprite.body.velocity.x = -150 * this.sprite.superspeed;
                     if (this.sprite.facing !== 'left')
                     {
                         this.sprite.facing = 'left';
@@ -147,7 +156,7 @@
                 {
                     this.sprite.scale.setTo(1, 1);
                     this.sprite.animations.play('walkSideways');
-                    this.sprite.body.velocity.x = 950;
+                    this.sprite.body.velocity.x = 150 * this.sprite.superspeed;
                     if (this.sprite.facing !== 'right')
                     {
                         this.sprite.facing = 'right';
@@ -157,7 +166,7 @@
                 {
                     this.sprite.scale.setTo(1, 1);
                     this.sprite.animations.play('walkUp');
-                    this.sprite.body.velocity.y = -150;
+                    this.sprite.body.velocity.y = -150 * this.sprite.superspeed;
                     if (this.sprite.facing !== 'up')
                     {
                         this.sprite.facing = 'up';
@@ -167,7 +176,7 @@
                 {
                     this.sprite.scale.setTo(1, 1);
                     this.sprite.animations.play('walkDown');
-                    this.sprite.body.velocity.y = 150;
+                    this.sprite.body.velocity.y = 150 * this.sprite.superspeed;
                     if (this.sprite.facing !== 'down')
                     {
                         this.sprite.facing = 'down';
