@@ -20,24 +20,12 @@
                  "height":28,
                  "id":3,
                  "name":"npc5",
-                 "properties":
-                    {
-                     "condType":"lessEqual",
-                     "condVal":"5",
-                     "condition":"npc5"
-                    },
-                 "propertytypes":
-                    {
-                     "condType":"string",
-                     "condVal":"string",
-                     "condition":"string"
-                    },
                  "rotation":0,
                  "type":"NPC",
                  "visible":true,
                  "width":26,
-                 "x":-74,
-                 "y":-75
+                 "x":800,
+                 "y":210
                 }, 
                 {
                  "height":1,
@@ -54,47 +42,23 @@
                  "height":28,
                  "id":6,
                  "name":"npc4",
-                 "properties":
-                    {
-                     "condType":"lessEqual",
-                     "condVal":"5",
-                     "condition":"npc4"
-                    },
-                 "propertytypes":
-                    {
-                     "condType":"string",
-                     "condVal":"string",
-                     "condition":"string"
-                    },
                  "rotation":0,
                  "type":"NPC",
                  "visible":true,
                  "width":26,
-                 "x":-33,
-                 "y":-49
+                 "x":431,
+                 "y":-48
                 }, 
                 {
                  "height":28,
                  "id":7,
                  "name":"npc3",
-                 "properties":
-                    {
-                     "condType":"lessEqual",
-                     "condVal":"5",
-                     "condition":"npc2"
-                    },
-                 "propertytypes":
-                    {
-                     "condType":"string",
-                     "condVal":"string",
-                     "condition":"string"
-                    },
                  "rotation":0,
                  "type":"NPC",
                  "visible":true,
                  "width":26,
-                 "x":-45,
-                 "y":469
+                 "x":323,
+                 "y":-48
                 }, 
                 {
                  "height":28,
@@ -123,47 +87,23 @@
                  "height":28,
                  "id":9,
                  "name":"npc2",
-                 "properties":
-                    {
-                     "condType":"lessEqual",
-                     "condVal":"5",
-                     "condition":"npc2"
-                    },
-                 "propertytypes":
-                    {
-                     "condType":"string",
-                     "condVal":"string",
-                     "condition":"string"
-                    },
                  "rotation":0,
                  "type":"NPC",
                  "visible":true,
                  "width":26,
-                 "x":-117,
-                 "y":497
+                 "x":212,
+                 "y":-43
                 }, 
                 {
                  "height":28,
                  "id":10,
                  "name":"npc1",
-                 "properties":
-                    {
-                     "condType":"lessEqual",
-                     "condVal":"5",
-                     "condition":"npc2"
-                    },
-                 "propertytypes":
-                    {
-                     "condType":"string",
-                     "condVal":"string",
-                     "condition":"string"
-                    },
                  "rotation":0,
                  "type":"NPC",
                  "visible":true,
                  "width":26,
-                 "x":815,
-                 "y":-62
+                 "x":93,
+                 "y":-58
                 }],
          "opacity":1,
          "type":"objectgroup",

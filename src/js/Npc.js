@@ -30,10 +30,14 @@
             tweenA.start();
         }
         this.arriveRand = function(){
-            var x = (100 * Math.random() + 250);
-            var y = (100 * Math.random() + 250);
-            var tweenA = this.gam.add.tween(this).to( { x: x, y: y  }, 1000, "Quart.easeOut" );
+            var positionArray = game.stateSave.get('randomNpcPositions');
+            var currentPosition = game.stateSave.get('currentRandomNpcPosition');
+            var newNpcPosition = positionArray[currentPosition];
+            console.log("newNpcPosition:", newNpcPosition);
+            game.stateSave.set('currentRandomNpcPosition', currentPosition + 1);
+            var tweenA = this.gam.add.tween(this).to( newNpcPosition, 1000, "Quart.easeOut" );
             tweenA.start();
+            ICTJAM3.StateSaver.currentRandomNpcPosition++;
         }
         this.arrive = function(){
             var tweenA = this.gam.add.tween(this).to( { x: 250, y: 200  }, 1000, "Quart.easeOut" );
