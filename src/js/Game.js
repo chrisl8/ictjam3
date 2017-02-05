@@ -12,7 +12,6 @@
 
     ICTJAM3.Game.prototype = {
         create: function () {
-            var facing = 'left';
             var cursors;
             this.npc = [];
             this.style = { font: "20px Arial", fill: "#ff0044", align: "center"  };
@@ -47,11 +46,14 @@
             this.button = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
             this.world.sort('depthVal');
             this.paused = false;
+
+            this.currentDialogBox = false;
+            this.chatTarget = null;
             this.button.onDown.add(function () {
-                if (this.sprite.chatBuddy) {
-                    this.sprite.chatBuddy.talk();
-                }
+                this.attemptChat();
             }, this);
+
+            this.movementEnabled = true;
 
             this.entities = this.add.group();
             this.entities.depthVal = 2;
@@ -65,6 +67,42 @@
             this.stateSave.set('npc4', 0);
             this.stateSave.set('npc5', 0);
             this.stateSave.set('shaman', 0);
+        },
+
+        attemptChat: function () {
+            if (this.currentDialogBox !== false) {
+                if (this.currentDialogBox.hasOwnProperty('talkNext') || this.currentDialogBox.talkNext === null) {
+                    this.chatTarget = this.findEntity(this.currentDialogBox.talkNext);
+                    if (this.chatTarget !== false) {
+                        this.doChat();
+                    } else {
+                        this.leaveChat();
+                    }
+                } else {
+                    this.leaveChat();
+                }
+            } else {
+                //this.sprite.chatBuddy.talk();
+                var targetEnt = this.findCloseNPC();
+                if (targetEnt) {
+                    this.chatTarget = targetEnt;
+                    this.doChat();
+                }
+            }
+        },
+
+        leaveChat: function () {
+            this.movementEnabled = true;
+            this.chatTarget.hideText();
+            this.currentDialogBox = false;
+            this.chatTarget = false;
+        },
+
+        doChat: function () {
+            this.chatTarget.talk();
+            if (!this.currentDialogBox.hasOwnProperty('text') && this.currentDialogBox.hasOwnProperty('talkNext')) {
+                this.attemptChat();
+            }
         },
 
         update: function () {
@@ -88,60 +126,47 @@
             this.physics.arcade.collide(this.sprite, this.mapLayer);
 
 
-            if (this.cursors.left.isDown)
-            {
-                this.sprite.scale.setTo(-1, 1);
-                this.sprite.animations.play('walkSideways');
-                this.sprite.body.velocity.x = -150;
-                if (this.facing != 'left')
+            if (this.movementEnabled) {
+                if (this.cursors.left.isDown)
                 {
-                    this.facing = 'left';
+                    this.sprite.scale.setTo(-1, 1);
+                    this.sprite.animations.play('walkSideways');
+                    this.sprite.body.velocity.x = -150;
+                    if (this.sprite.facing !== 'left')
+                    {
+                        this.sprite.facing = 'left';
+                    }
                 }
-            }
-            else if (this.cursors.right.isDown)
-            {
-                this.sprite.scale.setTo(1, 1);
-                this.sprite.animations.play('walkSideways');
-                this.sprite.body.velocity.x = 950;
-                if (this.facing != 'right')
+                else if (this.cursors.right.isDown)
                 {
-                    this.facing = 'right';
+                    this.sprite.scale.setTo(1, 1);
+                    this.sprite.animations.play('walkSideways');
+                    this.sprite.body.velocity.x = 950;
+                    if (this.sprite.facing !== 'right')
+                    {
+                        this.sprite.facing = 'right';
+                    }
                 }
-            }
-            if (this.cursors.up.isDown)
-            {
-                this.sprite.scale.setTo(1, 1);
-                this.sprite.animations.play('walkUp');
-                this.sprite.body.velocity.y = -150;
-                if (this.facing != 'left')
+                if (this.cursors.up.isDown)
                 {
-                    this.facing = 'left';
+                    this.sprite.scale.setTo(1, 1);
+                    this.sprite.animations.play('walkUp');
+                    this.sprite.body.velocity.y = -150;
+                    if (this.sprite.facing !== 'up')
+                    {
+                        this.sprite.facing = 'up';
+                    }
                 }
-            }
-            if (this.cursors.down.isDown)
-            {
-                this.sprite.scale.setTo(1, 1);
-                this.sprite.animations.play('walkDown');
-                this.sprite.body.velocity.y = 150;
-                if (this.facing != 'right')
+                else if (this.cursors.down.isDown)
                 {
-                    this.facing = 'right';
+                    this.sprite.scale.setTo(1, 1);
+                    this.sprite.animations.play('walkDown');
+                    this.sprite.body.velocity.y = 150;
+                    if (this.sprite.facing !== 'down')
+                    {
+                        this.sprite.facing = 'down';
+                    }
                 }
-            }
-            if(this.button.isDown) {
-            }
-            if (this.facing != 'idle')
-            {
-                // this.sprite.animations.stop();
-                if (this.facing == 'left')
-                {
-                    // this.sprite.frame = 0;
-                }
-                else
-                {
-                    // this.sprite.frame = 5;
-                }
-                this.facing = 'idle';
             }
 
             var curWorldCoords = this.stateSave.get('currentMap');
@@ -287,8 +312,42 @@
                     }
                 }
                 var entSprite = this.newEntity(ent);
+                entSprite.name = ent.name;
                 this.entities.add(entSprite);
             }, this);
+        },
+
+        findEntity: function (name) {
+            var filtered = this.entities.children.filter(function (e) {
+                return e.name === name;
+            });
+            if (filtered.length < 1) {
+                return false;
+            }
+            return filtered[0];
+        },
+
+        findCloseNPC: function () {
+            var playerTalkPos = {};
+            playerTalkPos.x = this.sprite.position.x;
+            playerTalkPos.y = this.sprite.position.y;
+            if (this.sprite.facing === 'left') {
+                playerTalkPos.x -= 32;
+            } else if (this.sprite.facing === 'right') {
+                playerTalkPos.x += 32;
+            } else if (this.sprite.facing === 'up') {
+                playerTalkPos.y -= 32;
+            } else if (this.sprite.facing === 'down') {
+                playerTalkPos.y += 32;
+            }
+
+            var filtered = this.entities.children.filter(function (e) {
+                return playerTalkPos.distance(e) < 16;
+            });
+            if (filtered.length < 1) {
+                return false;
+            }
+            return filtered[0];
         }
     };
 

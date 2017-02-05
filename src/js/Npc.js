@@ -79,42 +79,48 @@
         }
 
         this.talk = function() {
-            if(this.oneSecond == true){
-                this.hideText();
-                this.oneSecond = false;
-            } else {
-                this.hideText();
-                var characterTextOptions = game.cache.getJSON('ictGameJamScript')[name];
-                var textToSay = false;
-                for (var i = 0; i < characterTextOptions.length; i++) {
-                    if (characterTextOptions[i].hasOwnProperty('condition')) {
-                        var saveStateValue = game.stateSave.get(characterTextOptions[i].condition);
-                        if (typeof saveStateValue === 'undefined' || saveStateValue === null) {
+            this.hideText();
+            var characterTextOptions = game.cache.getJSON('ictGameJamScript')[name];
+            var dialogObj = false;
+            for (var i = 0; i < characterTextOptions.length; i++) {
+                if (characterTextOptions[i].hasOwnProperty('condition')) {
+                    var saveStateValue = game.stateSave.get(characterTextOptions[i].condition);
+                    if (typeof saveStateValue === 'undefined' || saveStateValue === null) {
+                        break;
+                    }
+                    if (characterTextOptions[i].condType === 'greaterEqual') {
+                        if (saveStateValue >= Number(characterTextOptions[i].condValue)) {
+                            dialogObj = characterTextOptions[i];
                             break;
                         }
-                        if (characterTextOptions[i].condType === 'greaterEqual') {
-                            if (saveStateValue >= Number(characterTextOptions[i].condValue)) {
-                                textToSay = characterTextOptions[i].text;
-                                break;
-                            }
-                        } else if (characterTextOptions[i].condType === 'equal') {
-                            console.log(characterTextOptions[i].condType, saveStateValue, characterTextOptions[i].condValue);
-                            if (saveStateValue === Number(characterTextOptions[i].condValue)) {
-                                console.log('.');
-                                textToSay = characterTextOptions[i].text;
-                                break;
-                            }
+                    } else if (characterTextOptions[i].condType === 'lessEqual') {
+                        if (saveStateValue >= Number(characterTextOptions[i].condValue)) {
+                            dialogObj = characterTextOptions[i];
+                            break;
+                        }
+                    } else if (characterTextOptions[i].condType === 'equal') {
+                        console.log(characterTextOptions[i].condType, saveStateValue, characterTextOptions[i].condValue);
+                        if (saveStateValue === Number(characterTextOptions[i].condValue)) {
+                            console.log('.');
+                            dialogObj = characterTextOptions[i];
+                            break;
                         }
                     }
                 }
-                if (textToSay) {
-                    this.text = game.world.add(new ICTJAM3.SpeechBubble(game, game.world.centerX + 35, game.world.centerY + 5, 256, textToSay));
+            }
+            if (dialogObj) {
+                game.currentDialogBox = dialogObj;
+                game.movementEnabled = false;
+            }
+            if (dialogObj.hasOwnProperty('advances')) {
+                var val = game.stateSave.get(dialogObj.advances);
+                if (typeof val === 'number') {
+                    game.stateSave.set(dialogObj.advances, val + 1);
                 }
             }
-            var self = this;
-            clearTimeout(this.timeout);
-            this.timeout = setTimeout(function(){self.hideText(); self.oneSecond = false;}, 9000);
-            setTimeout(function(){self.oneSecond = true;}, 1000);
+            if (dialogObj.text) {
+                this.text = this.addChild(new ICTJAM3.SpeechBubble(game, 10, 0, 256, dialogObj.text));
+            }
         };
     };
 
