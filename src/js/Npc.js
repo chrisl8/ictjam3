@@ -77,9 +77,9 @@
                 else if(dialogObj.action == "exit") this.exit();
                 else if(dialogObj.action == "arrive") this.arrive();
                 else if(dialogObj.action == "moveright") this.movex(100, this.x);
-                else if(dialogObj.action == "moveleft") this.movex(-100, this.y);
-                else if(dialogObj.action == "moveup") this.movey(-100);
-                else if(dialogObj.action == "movedown") this.movey(100);
+                else if(dialogObj.action == "moveleft") this.movex(-100, this.x);
+                else if(dialogObj.action == "moveup") this.movey(-150, this.y);
+                else if(dialogObj.action == "movedown") this.movey(150, this.y);
 //                else eval(dialogObj);
             }
             if (dialogObj.hasOwnProperty('advances')) {
@@ -106,6 +106,7 @@
                 }
                 if (characterTextOptions[i].hasOwnProperty('condition')) {
                     var saveStateValue = game.stateSave.get(characterTextOptions[i].condition);
+                    console.log(this.name, ": ", saveStateValue, characterTextOptions[i].condition, characterTextOptions[i].condType, characterTextOptions[i].condValue);
                     if (typeof saveStateValue === 'undefined' || saveStateValue === null) {
                         break;
                     }
@@ -132,6 +133,7 @@
                 game.movementEnabled = false;
             }
             if (dialogObj.hasOwnProperty('advances')) {
+
                 var val = game.stateSave.get(dialogObj.advances);
                 if (typeof val === 'number') {
                     game.stateSave.set(dialogObj.advances, val + 1);
