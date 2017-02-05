@@ -1,13 +1,6 @@
 ﻿{
   "mom": [
     {
-      "action": "exit",
-      "condition": "mom",
-      "condType": "equal",
-      "condValue": "4",
-      "advances": "mom"
-    },
-    {
       "text": "Lucy, thank goodness you are ok!",
       "condition": "mom",
       "condType": "equal",
@@ -37,6 +30,13 @@
       "condType": "equal",
       "condValue": "3",
       "talkNext": null,
+      "advances": "mom"
+    },
+    {
+      "action": "exit",
+      "condition": "mom",
+      "condType": "equal",
+      "condValue": "4",
       "advances": "mom"
     },
     {
@@ -89,9 +89,16 @@
       "advances": "dad"
     },
     {
+      "action": "exit",
+      "condition": "mom",
+      "condType": "equal",
+      "condValue": "5",
+      "advances": "mom"
+    },
+    {
       "text": "You are to go up to your room, and not come down till after this is all over!",
       "condition": "lucy",
-      "condType": "greaterEqual",
+      "condType": "equal",
       "condValue": "5",
       "talkNext": "mom",
       "advances": "dad"
@@ -229,6 +236,13 @@
       "condValue": "6",
       "talkNext": "mom",
       "advances": "lucy"
+    },
+    {
+      "action": "exit",
+      "condition": "mom",
+      "condType": "equal",
+      "condValue": "6",
+      "advances": "mom"
     }
   ],
   "shaman": [
@@ -246,6 +260,13 @@
       "condValue": "3",
       "talkNext": "pa",
       "advances": "pa"
+    },
+    {
+      "action": "exit",
+      "condition": "mom",
+      "condType": "equal",
+      "condValue": "7",
+      "advances": "mom"
     },
     {
       "text": "Oh child, thank goodness you are here. That stupid fool out there is going to get this town destroyed and no one is listening.",
