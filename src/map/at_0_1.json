@@ -23,7 +23,7 @@
                  "properties":
                     {
                      "condType":"lessEqual",
-                     "condVal":"9",
+                     "condVal":"6",
                      "condition":"mom"
                     },
                  "propertytypes":
@@ -46,8 +46,8 @@
                  "properties":
                     {
                      "condType":"lessEqual",
-                     "condVal":"9",
-                     "condition":"dad"
+                     "condVal":"6",
+                     "condition":"mom"
                     },
                  "propertytypes":
                     {
@@ -69,8 +69,8 @@
                  "properties":
                     {
                      "condType":"lessEqual",
-                     "condVal":"9",
-                     "condition":"dad"
+                     "condVal":"6",
+                     "condition":"mom"
                     },
                  "propertytypes":
                     {
@@ -92,8 +92,8 @@
                  "properties":
                     {
                      "condType":"lessEqual",
-                     "condVal":"9",
-                     "condition":"dad"
+                     "condVal":"6",
+                     "condition":"mom"
                     },
                  "propertytypes":
                     {
