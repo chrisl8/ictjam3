@@ -4,31 +4,15 @@
       "text": "Lucy, thank goodness you are ok!",
       "condition": "mom",
       "condType": "equal",
-      "condValue": "0"
+      "condValue": "0",
+      "advances": "mom"
     },
     {
       "text": "Lucy, why must you always make such a racket?! Get home and we will discuss your insolence later!",
       "condition": "mom",
       "condType": "equal",
-      "condValue": "1"
-    },
-    {
-      "text": "No buts, home now",
-      "condition": "mom",
-      "condType": "equal",
-      "condValue": "2"
-    },
-    {
-      "text": "YOUNG LADY!!!",
-      "condition": "mom",
-      "condType": "equal",
-      "condValue": "3"
-    },
-    {
-      "text": "First, you go out this morning without telling us and then you disobeyed me when I said to go home? You have always been headstrong, but this is ridiculous. You could have been killed!",
-      "condition": "mom",
-      "condType": "equal",
-      "condValue": "4"
+      "condValue": "1",
+      "advances": "mom"
     }
   ],
   "dad": [
@@ -36,25 +20,15 @@
       "text": "We were so worried! Did you see the dragon?!",
       "condition": "dad",
       "condType": "equal",
-      "condValue": "0"
+      "condValue": "0",
+      "advances": "dad"
     },
     {
       "text": "Yes, it has attacked a field of cattle outside of town. Killed almost half the herd!",
       "condition": "dad",
       "condType": "equal",
-      "condValue": "1"
-    },
-    {
-      "text": "You are to go up to your room, and not come down till after this is all over!",
-      "condition": "dad",
-      "condType": "equal",
-      "condValue": "2"
-    },
-    {
-      "text": "GO, NOW!!",
-      "condition": "dad",
-      "condType": "equal",
-      "condValue": "3"
+      "condValue": "1",
+      "advances": "dad"
     }
   ],
   "lucy": [

@@ -36,17 +36,19 @@
                     if (characterTextOptions[i].hasOwnProperty('condition')) {
                         var saveStateValue = game.stateSave.get(characterTextOptions[i].condition);
                         if (typeof saveStateValue === 'undefined' || saveStateValue === null) {
-                            continue;
+                            break;
                         }
                         if (characterTextOptions[i].condType === 'greaterEqual') {
-                            if (saveStateValue < characterTextOptions[i].condVal) {
+                            if (saveStateValue >= Number(characterTextOptions[i].condValue)) {
                                 textToSay = characterTextOptions[i].text;
-                                continue;
+                                break;
                             }
                         } else if (characterTextOptions[i].condType === 'equal') {
-                            if (saveStateValue !== characterTextOptions[i].condVal) {
+                            console.log(characterTextOptions[i].condType, saveStateValue, characterTextOptions[i].condValue);
+                            if (saveStateValue === Number(characterTextOptions[i].condValue)) {
+                                console.log('.');
                                 textToSay = characterTextOptions[i].text;
-                                continue;
+                                break;
                             }
                         }
                     }
