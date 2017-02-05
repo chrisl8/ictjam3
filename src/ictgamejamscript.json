@@ -1,7 +1,7 @@
 ﻿{
   "mom": [
     {
-      "action": "movedown",
+      "action": "moveup",
       "condition": "mom",
       "condType": "equal",
       "condValue": "3"

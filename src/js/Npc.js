@@ -29,7 +29,8 @@
             this.y = 2000;
         }
         this.arrive = function(){
-            this.x = 200;
+            console.log('arrive');
+            this.x = 250;
             this.y = 200;
         }
         this.movex = function(x){
@@ -57,9 +58,7 @@
                                 continue;
                             }
                         } else if (characterTextOptions[i].condType === 'equal') {
-                            console.log(saveStateValue);
                             if (saveStateValue !== characterTextOptions[i].condVal) {
-                            console.log('go');
                                 textToSay = characterTextOptions[i].action;
                                 continue;
                             }
@@ -70,7 +69,7 @@
             if (textToSay) {
                 if(textToSay == "exit") this.exit();
                 else if(textToSay == "exit") this.exit();
-                else if(textToSay == "arrive") this.exit();
+                else if(textToSay == "arrive") this.arrive();
                 else if(textToSay == "moveright") this.movex(100);
                 else if(textToSay == "moveleft") this.movex(-100);
                 else if(textToSay == "moveup") this.movey(-100);
