@@ -258,6 +258,10 @@
                         if (val < conditionData.condVal) {
                             return;
                         }
+                    } else if (conditionData.condType === 'lessEqual') {
+                        if (val > conditionData.condVal) {
+                            return;
+                        }
                     } else if (conditionData.condType === 'equal') {
                         if (val !== conditionData.condVal) {
                             return;
