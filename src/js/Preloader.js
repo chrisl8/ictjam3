@@ -13,11 +13,20 @@ ICTJAM3.Preloader.prototype = {
 	    this.game.load.json('ictGameJamScript', 'ictgamejamscript.json');
 
         this.game.load.spritesheet('mom', 'img/Mom.png', 32, 32);
-        this.game.load.image('ok', 'img/ok.png');
+        this.game.load.spritesheet('dad', 'img/Dad.png', 32, 32);
         this.game.load.spritesheet('lucy', 'img/Lucy.png', 32, 32);
+        this.game.load.spritesheet('pa', 'img/PA.png', 32, 32);
+        this.game.load.spritesheet('shaman', 'img/PA.png', 32, 32);
+        this.game.load.spritesheet('npc1', 'img/npc1.png', 32, 32);
+        this.game.load.spritesheet('npc2', 'img/npc2.png', 32, 32);
+        this.game.load.spritesheet('npc3', 'img/npc3.png', 32, 32);
+        this.game.load.spritesheet('npc4', 'img/npc4.png', 32, 32);
+        this.game.load.spritesheet('npc5', 'img/npc5.png', 32, 32);
+        this.game.load.spritesheet('window', 'img/Window.png', 32, 32);
+        this.game.load.spritesheet('dresser', 'img/Dresser.png', 32, 32);
+        this.game.load.spritesheet('bed', 'img/Bed.png', 32, 32);
         this.game.load.spritesheet('dragon', 'img/Dragon.png', 32, 32);
         this.game.load.spritesheet('horse', 'img/Horse.png', 32, 32);
-        this.game.load.spritesheet('villager', 'img/Villager.png', 32, 32);
 
         this.game.load.image('temp_tiles', 'img/temp_tiles.png');
         this.game.load.tilemap('test_map', 'map/test_map.json', null, Phaser.Tilemap.TILED_JSON);
