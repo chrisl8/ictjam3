@@ -32,7 +32,7 @@
         this.arrive = function(){
             var x = (100 * Math.random() + 250);
             var y = (100 * Math.random() + 250);
-            var tweenA = this.gam.add.tween(this).to( { x: 250, y: 200  }, 1000, "Quart.easeOut" );
+            var tweenA = this.gam.add.tween(this).to( { x: x, y: y  }, 1000, "Quart.easeOut" );
             tweenA.start();
         }
         this.movex = function(x, old){
