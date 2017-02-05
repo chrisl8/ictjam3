@@ -68,7 +68,7 @@
       "text": "We were so worried! Did you see the dragon?!",
       "condition": "dad",
       "condType": "equal",
-      "condValue": "0",
+      "condValue": "1",
       "talkNext": "lucy",
       "advances": "dad"
     },
@@ -76,7 +76,7 @@
       "text": "Yes, it has attacked a field of cattle outside of town. Killed almost half the herd!",
       "condition": "pa",
       "condType": "greaterEqual",
-      "condValue": "1",
+      "condValue": "2",
       "talkNext": "pa",
       "advances": "dad"
     },
