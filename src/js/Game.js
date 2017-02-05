@@ -58,6 +58,7 @@
 
             // Test condition for mom
             this.stateSave.set('mom', 0);
+            this.stateSave.set('dad', 0);
 
         },
 
