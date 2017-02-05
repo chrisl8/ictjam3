@@ -30,6 +30,8 @@ ICTJAM3.Preloader.prototype = {
         this.game.load.spritesheet('dragon', 'img/Dragon.png', 32, 32);
         this.game.load.spritesheet('horse', 'img/Horse.png', 32, 32);
 
+        this.game.load.image('pendant', 'img/necklace.png');
+
         this.game.load.image('temp_tiles', 'img/temp_tiles.png');
         this.game.load.tilemap('test_map', 'map/test_map.json', null, Phaser.Tilemap.TILED_JSON);
 

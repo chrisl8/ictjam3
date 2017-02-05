@@ -17,7 +17,8 @@
             this.style = { font: "20px Arial", fill: "#ff0044", align: "center"  };
 
             this.sprite = new ICTJAM3.Npc('lucy', this.world.centerX - 250, this.world.centerY, this);
-            this.sprite.check = null;
+            delete this.sprite.check;
+            this.sprite.isPlayer = true;
             this.world.add(this.sprite);
             this.sprite.superspeed = 1;
             this.sprite.depthVal = 2;
@@ -230,6 +231,8 @@
                     this.initializeMap(mapName, {xDir: 0, yDir: -1});
                 }, this);
             }
+
+            this.entities.sort('y', Phaser.Group.SORT_ASCENDING);
         },
 
         initializeMap: function (key, slide) {
@@ -238,6 +241,8 @@
                 this.prevMapLayerGroup = this.mapLayerGroup;
                 this.prevMapLayer = this.mapLayer;
             }
+            this.entities.removeChild(this.sprite);
+            this.world.add(this.sprite);
             this.prevEntities = this.entities;
 
             this.map = this.add.tilemap('map_' + key);
@@ -283,6 +288,9 @@
                 t3.onComplete.add(function () {
                     this.paused = false;
                     this.removeOldMap();
+
+                    this.world.removeChild(this.sprite);
+                    this.entities.add(this.sprite);
                 }, this);
 
                 t1.start();
@@ -310,7 +318,9 @@
             if (data.type === "NPC") {
                 return new ICTJAM3.Npc(data.name, data.x, data.y, this);
             }
-            return new Phaser.Sprite(this.game, data.x, data.y, data.name);
+            var spr = new Phaser.Sprite(this.game, data.x, data.y, data.name);
+            spr.anchor.setTo(0.5, 0.5);
+            return spr;
         },
 
         createMapEntities: function () {
@@ -350,6 +360,32 @@
                 }
                 var entSprite = this.newEntity(ent);
                 entSprite.name = ent.name;
+                if (conditionData.hasOwnProperty('overlap')) {
+                    if (conditionData.overlap === 'pickup') {
+                        entSprite.pickuper = this.sprite;
+                        if (conditionData.hasOwnProperty('pickupVar')) {
+                            entSprite.stateSave = this.stateSave;
+                            entSprite.pickupVar = conditionData.pickupVar;
+                        }
+                        entSprite.update = function () {
+                            if (this.alive !== true) {
+                                return;
+                            }
+                            var pickuperPos = new Phaser.Point(this.pickuper.x, this.pickuper.y + 8);
+                            if (pickuperPos.distance(this) < 10) {
+                                console.log('got me');
+                                this.kill();
+                                if (this.hasOwnProperty('pickupVar')) {
+                                    var val = this.stateSave.get(this.pickupVar);
+                                    if (typeof val !== "number") {
+                                        val = 0;
+                                    }
+                                    this.stateSave.set(this.pickupVar, val + 1);
+                                }
+                            }
+                        };
+                    }
+                }
                 this.entities.add(entSprite);
             }, this);
         },
@@ -380,6 +416,9 @@
             }
 
             var filtered = this.entities.children.filter(function (e) {
+                if (e.isPlayer) {
+                    return false;
+                }
                 return playerTalkPos.distance(e) < 24;
             });
             if (filtered.length < 1) {

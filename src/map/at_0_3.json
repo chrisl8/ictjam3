@@ -15,7 +15,23 @@
          "draworder":"topdown",
          "height":14,
          "name":"entities",
-         "objects":[],
+         "objects":[
+                {
+                 "height":0,
+                 "id":10,
+                 "name":"pendant",
+                 "properties":
+                    {
+                     "overlap":"pickup",
+                     "pickupVar":"pendant"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":376,
+                 "y":152
+                }],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
@@ -23,7 +39,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":10,
+ "nextobjectid":11,
  "orientation":"orthogonal",
  "properties":
     {
@@ -36,7 +52,7 @@
          "columns":8,
          "firstgid":1,
          "image":"..\/img\/temp_tiles.png",
-         "imageheight":64,
+         "imageheight":128,
          "imagewidth":256,
          "margin":0,
          "name":"temp_tiles",
@@ -45,7 +61,7 @@
 
             },
          "spacing":0,
-         "tilecount":16,
+         "tilecount":32,
          "tileheight":32,
          "tileproperties":
             {
