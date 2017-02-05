@@ -11,6 +11,7 @@
       "condition": "mom",
       "condType": "equal",
       "condValue": "0",
+      "talkNext": "dad",
       "advances": "mom"
     },
     {
@@ -18,22 +19,81 @@
       "condition": "mom",
       "condType": "equal",
       "condValue": "1",
+      "talkNext": "lucy",
+      "advances": "mom"
+    },
+    {
+      "text": "No buts, home now",
+      "condition": "mom",
+      "condType": "equal",
+      "condValue": "2",
+      "talkNext": null,
+      "advances": "mom"
+    },
+    {
+      "text": "YOUNG LADY!!!",
+      "condition": "shaman",
+      "condType": "equal",
+      "condValue": "4",
+      "talkNext": "mom",
+      "advances": "mom"
+    },
+    {
+      "text": "First, you go out this morning without telling us and then you disobeyed me when I said to go home? You have always been headstrong, but this is ridiculous. You could have been killed!",
+      "condition": "mom",
+      "condType": "equal",
+      "condValue": "4",
+      "talkNext": "dad",
+      "advances": "mom"
+    },
+    {
+      "text": "GO, NOW!",
+      "condition": "mom",
+      "condType": "equal",
+      "condValue": "5",
+      "talkNext": "dad",
       "advances": "mom"
     }
   ],
   "dad": [
     {
+      "text": null,
+      "condition": "mom",
+      "condType": "lessEqual",
+      "condValue": "0",
+      "talkNext": "mom",
+      "advances": "dad"
+    },
+    {
       "text": "We were so worried! Did you see the dragon?!",
       "condition": "dad",
       "condType": "equal",
       "condValue": "0",
+      "talkNext": "lucy",
       "advances": "dad"
     },
     {
       "text": "Yes, it has attacked a field of cattle outside of town. Killed almost half the herd!",
+      "condition": "pa",
+      "condType": "greaterEqual",
+      "condValue": "1",
+      "talkNext": "pa",
+      "advances": "dad"
+    },
+    {
+      "text": "You are to go up to your room, and not come down till after this is all over!",
+      "condition": "lucy",
+      "condType": "greaterEqual",
+      "condValue": "5",
+      "talkNext": "mom",
+      "advances": "dad"
+    },
+    {
+      "text": "GO, NOW!",
       "condition": "dad",
       "condType": "equal",
-      "condValue": "1",
+      "condValue": "6",
+      "talkNext": "lucy",
       "advances": "dad"
     }
   ],
@@ -42,43 +102,57 @@
       "text": "Dragon? Mom, dad, what dragon?! What are you talking about!",
       "condition": "dad",
       "condType": "equal",
-      "condValue": "0"
+      "condValue": "0",
+      "talkNext": null,
+      "advances": "lucy"
     },
     {
       "text": "But how many dragons have you killed? And where exactly are you from? Why should we listen to you over our shaman?!",
       "condition": "lucy",
       "condType": "equal",
-      "condValue": "1"
+      "condValue": "1",
+      "talkNext": "pa",
+      "advances": "lucy"
     },
     {
       "text": "But mother!",
       "condition": "lucy",
       "condType": "equal",
-      "condValue": "2"
+      "condValue": "2",
+      "talkNext": "mom",
+      "advances": "lucy"
     },
     {
       "text": "What are we going to do? If the dragon comes here, it will destroy the village! There has to be another way.",
       "condition": "lucy",
       "condType": "equal",
-      "condValue": "3"
+      "condValue": "3",
+      "talkNext": "shaman",
+      "advances": "lucy"
     },
     {
       "text": "What do you need of me?",
       "condition": "lucy",
       "condType": "equal",
-      "condValue": "4"
+      "condValue": "4",
+      "talkNext": "shaman",
+      "advances": "lucy"
     },
     {
       "text": "Mom, dad, Listen, PLEASE!",
       "condition": "lucy",
       "condType": "equal",
-      "condValue": "5"
+      "condValue": "5",
+      "talkNext": "mom",
+      "advances": "lucy"
     },
     {
       "text": "I have to get out of here, but how",
       "condition": "lucy",
       "condType": "equal",
-      "condValue": "5"
+      "condValue": "5",
+      "talkNext": null,
+      "advances": "lucy"
     },
     {
       "text": "You make your way to the cave straightaway. When you get to the entrance, you can barely see inside. As you step inside, there is just enough light to see about 20 feet in. You here strange noises coming from beyond the light.",
@@ -95,28 +169,44 @@
   ],
   "pa": [
     {
+      "text": "Greeting, good citizens of MadeUpTownName! My name is Sir Airupmyass, and I have been tracking a most vile creature, a dragon, across the lands, and it has brought me to your humble town. Can I assume, but the panic that I see, that this dragon is indeed in the area?",
+      "condition": "lucy",
+      "condType": "greaterEqual",
+      "condValue": "1",
+      "talkNext": "dad",
+      "advance": "pa"
+    },
+    {
       "text": "I am sorry to hear that, but lucky for you I am a dragon knight from a far away land, and I can take care of this dragon for you.",
-      "condition": "ph",
+      "condition": "pa",
       "condType": "equal",
-      "condValue": "0"
+      "condValue": "1",
+      "talkNext": "pa",
+      "advances": "pa"
     },
     {
       "text": "Of course, dragon hunting is a hard and expensive job. I would need some sort of compensation for this task…..",
-      "condition": "ph",
+      "condition": "pa",
       "condType": "equal",
-      "condValue": "1"
+      "condValue": "2",
+      "talkNext": "shaman",
+      "advances": "pa"
     },
     {
       "text": "CITIZENS!!!! This beast will destroy your homes and eat your children! Can you really afford not to have me take care of this beast! I am dragon knight, and this is what I do",
-      "condition": "ph",
+      "condition": "pa",
       "condType": "equal",
-      "condValue": "2"
+      "condValue": "3",
+      "talkNext": "Lucy",
+      "advances": "pa"
     },
     {
       "text": "Where are the parents of this...this girl?!  Who lets her speak to a knight with such disrespect?",
-      "condition": "ph",
+      "condition": "pa",
       "condType": "equal",
-      "condValue": "3"
+      "condValue": "4",
+      "talkNext": "mom",
+      "advances": "pa"
     }
   ],
   "shaman": [
@@ -124,19 +214,25 @@
       "text": "Please, please everyone, I need to you calm down. I have studied dragons ever since I was a young girl there has to be a reasonable explain….",
       "condition": "shaman",
       "condType": "equal",
-      "condValue": "0"
+      "condValue": "0",
+      "talkNext": "pa",
+      "advances": "shaman"
     },
     {
       "text": "Oh child, thank goodness you are here. That stupid fool out there is going to get this town destroyed and no one is listening.",
       "condition": "shaman",
       "condType": "equal",
-      "condValue": "1"
+      "condValue": "1",
+      "talkNext": "lucy",
+      "advances": "shaman"
     },
     {
       "text": "You are right, child. And what no one was willing to hear is that dragons rarely come near populated areas. They tend to hunt away from people, for they are intelligent creatures and know that if they stay out of sight, they will usually be left in peace. Something dire must have happened for it to come this close to our village for food. I have a tremendous task to ask you, Lucy, one that hope you will forgive me for putting on your shoulders. You are young and have always been stubborn and unwilling to accept the restrictions that our village has wanted to put on young ladies. Playing soldier with boys and climbing the tallest trees to prove you were braver than the boys. But at the same time, you were always compassionate to all around, bringing home wildlife for me to tend and heal.  Because of this, you are the only one I can trust with this task.",
       "condition": "shaman",
       "condType": "equal",
-      "condValue": "2"
+      "condValue": "2",
+      "talkNext": "lucy",
+      "advances": "shaman"
     },
     {
       "text": "There is a cave not far from the village that supposedly holds a magical item that can communicate with animals and beast. It is only visible to those that are deemed pure of heart.  I myself have never been to this cave, but I know many in town know of its location. I need you to find the location of this cave and get that item. It may be the key to finding out why the dragon is attacking.  But you must hurry!",
@@ -148,7 +244,9 @@
       "text": "There is a cave not far from the village that supposedly holds a magical item that can communicate with animals and beast. It is only visible to those that are deemed pure of heart.  I myself have never been to this cave, but I know many in town know of its location. I need you to find the location of this cave and get that item. It may be the key to finding out why the dragon is attacking.  But you must hurry!",
       "condition": "shaman",
       "condType": "equal",
-      "condValue": "3"
+      "condValue": "3",
+      "talkNext": null,
+      "advances": "shaman"
     }
   ],
   "npc1": [
@@ -156,7 +254,9 @@
       "text": "That dragon just swooped in from the North. Must have come from Mt. KillAllMenWhoEnter.  I wonder how long it has been there.",
       "condition": "npc1",
       "condType": "equal",
-      "condValue": "0"
+      "condValue": "0",
+      "talkNext": null,
+      "advances": "npc1"
     }
   ],
   "npc2": [
@@ -164,7 +264,10 @@
       "text": "First, we hear reports of an invading army from the east, and now this.  What is this world coming too?!",
       "condition": "npc2",
       "condType": "equal",
-      "condValue": "0"
+      "condValue": "0",
+      "talkNext": null,
+      "advances": "npc2"
+
     }
   ],
   "npc3": [
@@ -172,7 +275,10 @@
       "text": "Did you hear about the Floyd’s boys? I guess those two rascals decided to go exploring “The Demon's Cave” down to the south east and came running back scared. They refuse to talk about what they saw there.  I would probably stay away from that cave.",
       "condition": "npc3",
       "condType": "equal",
-      "condValue": "0"
+      "condValue": "0",
+      "talkNext": null,
+      "advances": "npc3"
+
     }
   ],
   "npc4": [
@@ -180,7 +286,10 @@
       "text": "OH NO DRAGON!!  (he should be panicked!!!)",
       "condition": "npc4",
       "condType": "equal",
-      "condValue": "0"
+      "condValue": "0",
+      "talkNext": null,
+      "advances": "npc4"
+
     }
   ],
   "npc5": [
@@ -188,15 +297,28 @@
       "text": "My necklace, oh where is my necklace???",
       "condition": "npc5",
       "condType": "equal",
-      "condValue": "0"
+      "condValue": "0",
+      "talkNext": null,
+      "advances": "npc5"
+
     }
   ],
   "window": [
     {
+      "text": null,
+      "condition": "lucy",
+      "condType": "greaterEqual",
+      "condValue": "6",
+      "talkNext": "window",
+      "advances": "window"
+    },
+    {
       "text": "(if nothing else has been picked up) Yup, that is’t going to happen.",
-      "condition": "haveItems",
-      "condType": "equal",
-      "condValue": "none"
+      "condition": "lucy",
+      "condType": "greaterEqual",
+      "condValue": "6",
+      "talkNext": null,
+      "advances": "window"
     },
     {
       "text": "I bet I could tie my dresses together and get down. My parents are already going to kill me….",
