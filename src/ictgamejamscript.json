@@ -141,7 +141,7 @@
       "text": "What are we going to do? If the dragon comes here, it will destroy the village! There has to be another way.",
       "condition": "shaman",
       "condType": "equal",
-      "condValue": "4",
+      "condValue": "5",
       "talkNext": "shaman",
       "advances": "shaman"
     },
@@ -149,7 +149,7 @@
       "text": "What do you need of me?",
       "condition": "shaman",
       "condType": "equal",
-      "condValue": "7",
+      "condValue": "12",
       "talkNext": "shaman",
       "advances": "shaman"
     },
@@ -284,7 +284,7 @@
       "text": "You are right, child. And what no one was willing to hear is that dragons rarely come near populated areas. They tend to hunt away from people, for they are intelligent creatures and know that if they stay out of sight, they will usually be left in peace. Something dire must have happened for it to come this close to our village for food.",
       "condition": "shaman",
       "condType": "equal",
-      "condValue": "5",
+      "condValue": "6",
       "talkNext": "shaman",
       "advances": "shaman"
     },
@@ -292,7 +292,7 @@
       "text": "I have a tremendous task to ask you, Lucy, one that hope you will forgive me for putting on your shoulders. You are young and have always been stubborn and unwilling to accept the restrictions that our village has wanted to put on young ladies. Playing soldier with boys and climbing the tallest trees to prove you were braver than the boys. But at the same time, you were always compassionate to all around, bringing home wildlife for me to tend and heal.  Because of this, you are the only one I can trust with this task.",
       "condition": "shaman",
       "condType": "equal",
-      "condValue": "6",
+      "condValue": "7",
       "talkNext": "lucy",
       "advances": "shaman"
     },
@@ -300,7 +300,7 @@
       "text": "There is a cave not far from the village that supposedly holds a magical item that can communicate with animals and beast. It is only visible to those that are deemed pure of heart.  I myself have never been to this cave, but I know many in town know of its location. I need you to find the location of this cave and get that item. It may be the key to finding out why the dragon is attacking.  But you must hurry!",
       "condition": "shaman",
       "condType": "equal",
-      "condValue": "8",
+      "condValue": "9",
       "talkNext": null,
       "advances": "shaman"
     },
@@ -308,7 +308,7 @@
       "text": null,
       "condition": "shaman",
       "condType": "equal",
-      "condValue": "9",
+      "condValue": "10",
       "talkNext": null,
       "advances": "shaman"
     },
@@ -316,56 +316,119 @@
       "action": "exit",
       "condition": "shaman",
       "condType": "equal",
-      "condValue": "10",
+      "condValue": "11",
       "advances": "shaman"
     }
   ],
   "npc1": [
     {
+      "action": "arrive",
+      "condition": "shaman",
+      "condType": "equal",
+      "condValue": "11",
+      "advances": "npc1"
+    },
+    {
+      "action": "moveright",
+      "condition": "npc1",
+      "condType": "equal",
+      "condValue": "1",
+      "advances": "npc1"
+    },
+    {
       "text": "That dragon just swooped in from the North. Must have come from Mt. KillAllMenWhoEnter.  I wonder how long it has been there.",
       "condition": "npc1",
       "condType": "equal",
-      "condValue": "0",
+      "condValue": "2",
       "talkNext": null,
       "advances": "npc1"
     }
   ],
   "npc2": [
     {
+      "action": "arrive",
+      "condition": "shaman",
+      "condType": "equal",
+      "condValue": "11",
+      "advances": "npc2"
+    },
+    {
+      "action": "moveleft",
+      "condition": "npc2",
+      "condType": "equal",
+      "condValue": "1",
+      "advances": "npc2"
+    },
+    {
       "text": "First, we hear reports of an invading army from the east, and now this.  What is this world coming too?!",
       "condition": "npc2",
       "condType": "equal",
-      "condValue": "0",
+      "condValue": "2",
       "talkNext": null,
       "advances": "npc2"
     }
   ],
   "npc3": [
     {
+      "action": "arrive",
+      "condition": "shaman",
+      "condType": "equal",
+      "condValue": "11",
+      "advances": "npc3"
+    },
+    {
+      "action": "moveup",
+      "condition": "npc3",
+      "condType": "equal",
+      "condValue": "1",
+      "advances": "npc3"
+    },
+    {
       "text": "Did you hear about the Floyd’s boys? I guess those two rascals decided to go exploring “The Demon's Cave” down to the south east and came running back scared. They refuse to talk about what they saw there.  I would probably stay away from that cave.",
       "condition": "npc3",
       "condType": "equal",
-      "condValue": "0",
+      "condValue": "2",
       "talkNext": null,
       "advances": "npc3"
     }
   ],
   "npc4": [
     {
+      "action": "arrive",
+      "condition": "shaman",
+      "condType": "equal",
+      "condValue": "11",
+      "advances": "npc4"
+    },
+    {
+      "action": "movedown",
+      "condition": "npc4",
+      "condType": "equal",
+      "condValue": "1",
+      "advances": "npc4"
+    },
+    {
       "text": "OH NO DRAGON!!  (he should be panicked!!!)",
       "condition": "npc4",
       "condType": "equal",
-      "condValue": "0",
+      "condValue": "2",
       "talkNext": null,
       "advances": "npc4"
     }
   ],
   "npc5": [
     {
+      "action": "arrive",
+      "condition": "shaman",
+      "condType": "equal",
+      "condValue": "11",
+      "advances": "npc5"
+    },
+    {
       "text": "My necklace, oh where is my necklace???",
       "condition": "npc5",
       "condType": "equal",
-      "condValue": "0",
+      "condValue": "1",
       "talkNext": null,
       "advances": "npc5"
     }
