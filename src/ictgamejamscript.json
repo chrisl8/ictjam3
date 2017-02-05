@@ -61,8 +61,7 @@
       "condition": "mom",
       "condType": "lessEqual",
       "condValue": "0",
-      "talkNext": "mom",
-      "advances": "dad"
+      "talkNext": "mom"
     },
     {
       "text": "We were so worried! Did you see the dragon?!",
