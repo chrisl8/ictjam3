@@ -10,6 +10,7 @@
 
         game.physics.arcade.enable(this);
         this.body.immovable = true;
+        this.gam = game;
 
         this.body.setSize(20, 20, 10, 16);
         this.body.drag.setTo(1000, 1000);
@@ -25,19 +26,20 @@
             }
         };
         this.exit = function(){
-            this.x = 2000;
-            this.y = 2000;
+            var tweenA = this.gam.add.tween(this).to( { x: 2000, y: 2000  }, 1000, "Quart.easeOut" );
+            tweenA.start();
         }
         this.arrive = function(){
-            console.log('arrive');
-            this.x = 250;
-            this.y = 200;
+            var tweenA = this.gam.add.tween(this).to( { x: 250, y: 200  }, 1000, "Quart.easeOut" );
+            tweenA.start();
         }
-        this.movex = function(x){
-            this.x = this.x + x;
+        this.movex = function(x, old){
+            var tweenA = this.gam.add.tween(this).to( { x: old + x }, 1000, "Quart.easeOut" );
+            tweenA.start();
         }
-        this.movey = function(y){
-            this.y = this.y + y;
+        this.movey = function(y, old){
+            var tweenA = this.gam.add.tween(this).to( { y: old + y }, 1000, "Quart.easeOut" );
+            tweenA.start();
         }
         this.check = function(){
             var characterTextOptions = game.cache.getJSON('ictGameJamScript')[name];
@@ -70,8 +72,8 @@
                 if(textToSay == "exit") this.exit();
                 else if(textToSay == "exit") this.exit();
                 else if(textToSay == "arrive") this.arrive();
-                else if(textToSay == "moveright") this.movex(100);
-                else if(textToSay == "moveleft") this.movex(-100);
+                else if(textToSay == "moveright") this.movex(100, this.x);
+                else if(textToSay == "moveleft") this.movex(-100, this.y);
                 else if(textToSay == "moveup") this.movey(-100);
                 else if(textToSay == "movedown") this.movey(100);
 //                else eval(textToSay);
