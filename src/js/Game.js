@@ -64,6 +64,11 @@
                 }
             }, this);
 
+            this.TurboButton = this.input.keyboard.addKey(Phaser.Keyboard.D);
+            this.TurboButton.onDown.add(function () {
+                this.sprite.superspeed = 1;
+            }, this);
+
             this.movementEnabled = true;
 
             this.entities = this.add.group();
@@ -181,6 +186,13 @@
                     {
                         this.sprite.facing = 'down';
                     }
+                }
+            } else {
+                // Because this bug is fun.
+                if (this.cursors.right.isDown) {
+                    this.sprite.scale.setTo(1, 1);
+                } else if (this.cursors.left.isDown) {
+                    this.sprite.scale.setTo(-1, 1);
                 }
             }
 

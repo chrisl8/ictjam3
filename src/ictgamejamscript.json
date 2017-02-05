@@ -103,8 +103,8 @@
       "condition": "dad",
       "condType": "greaterEqual",
       "condValue": "1",
-      "talkNext": null,
-      "advances": "lucy"
+      "talkNext": "pa",
+      "advances": "pa"
     },
     {
       "text": "But how many dragons have you killed? And where exactly are you from? Why should we listen to you over our shaman?!",
@@ -169,10 +169,17 @@
   ],
   "pa": [
     {
-      "text": "Greeting, good citizens of MadeUpTownName! My name is Sir Airupmyass, and I have been tracking a most vile creature, a dragon, across the lands, and it has brought me to your humble town. Can I assume, but the panic that I see, that this dragon is indeed in the area?",
-      "condition": "lucy",
-      "condType": "greaterEqual",
+      "action": "arrive",
+      "condition": "pa",
+      "condType": "equal",
       "condValue": "1",
+      "advances": "pa"
+    },
+    {
+      "text": "Greeting, good citizens of MadeUpTownName! My name is Sir Airupmyass, and I have been tracking a most vile creature, a dragon, across the lands, and it has brought me to your humble town. Can I assume, but the panic that I see, that this dragon is indeed in the area?",
+      "condition": "pa",
+      "condType": "equal",
+      "condValue": "2",
       "talkNext": "dad",
       "advance": "pa"
     },
@@ -180,7 +187,7 @@
       "text": "I am sorry to hear that, but lucky for you I am a dragon knight from a far away land, and I can take care of this dragon for you.",
       "condition": "pa",
       "condType": "equal",
-      "condValue": "1",
+      "condValue": "2",
       "talkNext": "pa",
       "advances": "pa"
     },
@@ -188,7 +195,7 @@
       "text": "Of course, dragon hunting is a hard and expensive job. I would need some sort of compensation for this task…..",
       "condition": "pa",
       "condType": "equal",
-      "condValue": "2",
+      "condValue": "3",
       "talkNext": "shaman",
       "advances": "pa"
     },
@@ -196,7 +203,7 @@
       "text": "CITIZENS!!!! This beast will destroy your homes and eat your children! Can you really afford not to have me take care of this beast! I am dragon knight, and this is what I do",
       "condition": "pa",
       "condType": "equal",
-      "condValue": "3",
+      "condValue": "4",
       "talkNext": "Lucy",
       "advances": "pa"
     },
@@ -204,7 +211,7 @@
       "text": "Where are the parents of this...this girl?!  Who lets her speak to a knight with such disrespect?",
       "condition": "pa",
       "condType": "equal",
-      "condValue": "4",
+      "condValue": "5",
       "talkNext": "mom",
       "advances": "pa"
     }
