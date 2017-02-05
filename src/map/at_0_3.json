@@ -22,11 +22,17 @@
                  "name":"pendant",
                  "properties":
                     {
+                     "condType":"lessEqual",
+                     "condVal":"0",
+                     "condition":"pendant",
                      "overlap":"pickup",
                      "pickupVar":"pendant"
                     },
                  "propertytypes":
                     {
+                     "condType":"string",
+                     "condVal":"string",
+                     "condition":"string",
                      "overlap":"string",
                      "pickupVar":"string"
                     },
