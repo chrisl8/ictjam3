@@ -78,6 +78,7 @@
             this.stateSave.set('mom', 0);
             this.stateSave.set('dad', 0);
             this.stateSave.set('pa', 0);
+            this.stateSave.set('lucy', 0);
             this.stateSave.set('npc1', 0);
             this.stateSave.set('npc2', 0);
             this.stateSave.set('npc3', 0);
@@ -88,7 +89,7 @@
             this.stateSave.set('dragon', 0);
             this.stateSave.set('pendant', 1);
             this.stateSave.set('end', 0);
-            
+
         },
 
         attemptChat: function () {
@@ -314,7 +315,7 @@
 
         createMapEntities: function () {
             if (!this.map.objects.hasOwnProperty('entities')) {
-                
+
                 return;
             }
             var entities = this.map.objects.entities;

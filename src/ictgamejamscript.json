@@ -170,18 +170,6 @@
       "advances": "lucy"
     },
     {
-      "text": "You make your way to the cave straightaway. When you get to the entrance, you can barely see inside. As you step inside, there is just enough light to see about 20 feet in. You here strange noises coming from beyond the light.",
-      "condition": "story",
-      "condType": "equal",
-      "condValue": "cave"
-    },
-    {
-      "text": "(Continue or go back for supplies?)",
-      "condition": "story",
-      "condType": "equal",
-      "condValue": "cave"
-    },
-    {
       "text": "Dragon response",
       "condition": "pendant",
       "condType": "equal",
