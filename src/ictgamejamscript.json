@@ -170,7 +170,7 @@
       "advances": "lucy"
     },
     {
-      "text": "Dragon response",
+      "text": "No!! I am not here to kill you! I am just here as the my town is scared after you came from the heard.",
       "condition": "pendant",
       "condType": "equal",
       "condValue": "2",
@@ -178,7 +178,7 @@
       "talkNext": "dragon"
     },
     {
-      "text": "Dragon response2",
+      "text": "Well, will you travel will me, and we can see if we can find a way to destroy this evil together. If I explain to my Shaman what is going on, I am sure we can make an arrangment.",
       "condition": "pendant",
       "condType": "equal",
       "condValue": "4",
@@ -195,7 +195,7 @@
       "advances": "pa"
     },
     {
-      "text": "Greeting, good citizens of MadeUpTownName! My name is Sir Airupmyass, and I have been tracking a most vile creature, a dragon, across the lands, and it has brought me to your humble town. Can I assume, but the panic that I see, that this dragon is indeed in the area?",
+      "text": "Greeting, good citizens of Town of Sandwich! My name is Sir Bob, and I have been tracking a most vile creature, a dragon, across the lands, and it has brought me to your humble town. Can I assume, but the panic that I see, that this dragon is indeed in the area?",
       "condition": "pa",
       "condType": "equal",
       "condValue": "2",
@@ -566,7 +566,7 @@
           "talkNext": "lucy"
       },
       {
-          "text": "I am hungry, the war from the east have made the animals of the forest run.  I am out of options.",
+          "text": "I am hungry, the war from the east have made the animals of the forest run.  I am out of options. And your town is called Town of Sandwich. And I love sandwiches!",
           "condition": "pendant",
           "condType": "equal",
           "condValue": "3",
