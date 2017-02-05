@@ -128,6 +128,8 @@
                     }
                 }
             }
+            console.log(dialogObj);
+            
             if (dialogObj) {
                 game.currentDialogBox = dialogObj;
                 game.movementEnabled = false;
@@ -139,6 +141,7 @@
                     game.stateSave.set(dialogObj.advances, val + 1);
                 }
             }
+            console.log(game.stateSave.get("dragon"));
             if (dialogObj.text) {
                 this.text = this.addChild(new ICTJAM3.SpeechBubble(game, 10, 0, 256, dialogObj.text));
             }

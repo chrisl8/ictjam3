@@ -15,7 +15,18 @@
          "draworder":"topdown",
          "height":14,
          "name":"entities",
-         "objects":[],
+         "objects":[
+                {
+                 "height":0,
+                 "id":3,
+                 "name":"dragon",
+                 "rotation":0,
+                 "type":"NPC",
+                 "visible":true,
+                 "width":0,
+                 "x":200,
+                 "y":150
+                }],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
@@ -23,7 +34,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":3,
+ "nextobjectid":4,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tileheight":32,

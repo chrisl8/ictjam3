@@ -85,6 +85,10 @@
             this.stateSave.set('npc5', 0);
             this.stateSave.set('shaman', 0);
             this.sprite.body.immovable = false;
+            this.stateSave.set('dragon', 0);
+            this.stateSave.set('pendant', 1);
+            this.stateSave.set('end', 0);
+            
         },
 
         attemptChat: function () {
@@ -310,14 +314,19 @@
 
         createMapEntities: function () {
             if (!this.map.objects.hasOwnProperty('entities')) {
+                
                 return;
             }
             var entities = this.map.objects.entities;
+            console.log(entities);
 
             entities.forEach(function (ent) {
                 var conditionData = ent.properties;
                 if (typeof conditionData === 'undefined' || !conditionData) {
-                    return;
+                    var entSprite = this.newEntity(ent);
+                entSprite.name = ent.name;
+                this.entities.add(entSprite);
+                return;
                 }
                 if (conditionData.hasOwnProperty('condition')) {
                     var val = this.stateSave.get(conditionData.condition);
