@@ -55,12 +55,13 @@
                             continue;
                         }
                         if (characterTextOptions[i].condType === 'greaterEqual') {
-                            if (saveStateValue < characterTextOptions[i].condVal) {
+                            if (saveStateValue <= Number(characterTextOptions[i].condValue)) {
                                 textToSay = characterTextOptions[i].action;
                                 continue;
                             }
                         } else if (characterTextOptions[i].condType === 'equal') {
-                            if (saveStateValue !== characterTextOptions[i].condVal) {
+                            console.log(saveStateValue, characterTextOptions[i].condValue);
+                            if (saveStateValue === Number(characterTextOptions[i].condValue)) {
                                 textToSay = characterTextOptions[i].action;
                                 continue;
                             }
