@@ -122,7 +122,7 @@
       "talkNext": "dragon"
     },
     {
-      "text": "Well, will you travel with me, and we can see if we can find a way to destroy this evil together. If I explain to my Shaman what is going on, I am sure we can make an arrangment.",
+      "text": "Well, will you travel with me, and we can see if we can find a way to destroy this evil together. If I explain to my Shaman what is going on, I am sure we can make an arrangement.",
       "condition": "pendant",
       "condType": "equal",
       "condValue": "4",
@@ -245,7 +245,7 @@
       "condition": "shaman",
       "condType": "equal",
       "condValue": "9",
-      "talkNext": null,
+      "talkNext": "shaman",
       "advances": "shaman"
     },
     {
@@ -273,17 +273,10 @@
       "advances": "npc1"
     },
     {
-      "action": "moveright",
-      "condition": "npc1",
-      "condType": "equal",
-      "condValue": "1",
-      "advances": "npc1"
-    },
-    {
       "text": "That dragon just swooped in from the North. Must have come from Mt. KillAllMenWhoEnter.  I wonder how long it has been there.",
       "condition": "npc1",
       "condType": "equal",
-      "condValue": "2",
+      "condValue": "1",
       "talkNext": null,
       "advances": "npc1"
     }
@@ -297,17 +290,10 @@
       "advances": "npc2"
     },
     {
-      "action": "moveleft",
-      "condition": "npc2",
-      "condType": "equal",
-      "condValue": "1",
-      "advances": "npc2"
-    },
-    {
       "text": "First, we hear reports of an invading army from the east, and now this.  What is this world coming too?!",
       "condition": "npc2",
       "condType": "equal",
-      "condValue": "2",
+      "condValue": "1",
       "talkNext": null,
       "advances": "npc2"
     }
@@ -321,17 +307,10 @@
       "advances": "npc3"
     },
     {
-      "action": "moveup",
-      "condition": "npc3",
-      "condType": "equal",
-      "condValue": "1",
-      "advances": "npc3"
-    },
-    {
       "text": "Did you hear about the Floyd’s boys? I guess those two rascals decided to go exploring “The Demon's Cave” down to the south east and came running back scared. They refuse to talk about what they saw there.  I would probably stay away from that cave.",
       "condition": "npc3",
       "condType": "equal",
-      "condValue": "2",
+      "condValue": "1",
       "talkNext": null,
       "advances": "npc3"
     }
@@ -345,17 +324,10 @@
       "advances": "npc4"
     },
     {
-      "action": "movedown",
-      "condition": "npc4",
-      "condType": "equal",
-      "condValue": "1",
-      "advances": "npc4"
-    },
-    {
       "text": "OH NO DRAGON!! (Imagine I sound very panicked!!!)",
       "condition": "npc4",
       "condType": "equal",
-      "condValue": "2",
+      "condValue": "1",
       "talkNext": null,
       "advances": "npc4"
     }
@@ -395,7 +367,7 @@
       "talkNext": "lucy"
     },
     {
-      "text": "I will agree to your terms, if your people will as well. Thank you and may us destroy this eveil together!!",
+      "text": "I will agree to your terms, if your people will as well. Thank you and may us destroy this evil together!!",
       "condition": "pendant",
       "condType": "equal",
       "condValue": "5",
