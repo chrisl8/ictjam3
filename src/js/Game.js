@@ -61,6 +61,7 @@
             // Set conditions
             this.stateSave.set('mom', 0);
             this.stateSave.set('dad', 0);
+            this.stateSave.set('pa', 0);
             this.stateSave.set('npc1', 0);
             this.stateSave.set('npc2', 0);
             this.stateSave.set('npc3', 0);

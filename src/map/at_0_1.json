@@ -64,13 +64,13 @@
                 }, 
                 {
                  "height":0,
-                 "id":4,
+                 "id":5,
                  "name":"pa",
                  "properties":
                     {
-                     "condType":"equal",
-                     "condVal":"0",
-                     "condition":"pa"
+                     "condType":"lessEqual",
+                     "condVal":"9",
+                     "condition":"dad"
                     },
                  "propertytypes":
                     {
@@ -82,8 +82,8 @@
                  "type":"NPC",
                  "visible":true,
                  "width":0,
-                 "x":872,
-                 "y":194
+                 "x":907,
+                 "y":117
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -92,7 +92,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":5,
+ "nextobjectid":6,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tileheight":32,
