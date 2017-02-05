@@ -26,6 +26,12 @@
                      "condVal":"9",
                      "condition":"mom"
                     },
+                 "propertytypes":
+                    {
+                     "condType":"string",
+                     "condVal":"string",
+                     "condition":"string"
+                    },
                  "rotation":0,
                  "type":"NPC",
                  "visible":true,
@@ -43,12 +49,41 @@
                      "condVal":"9",
                      "condition":"dad"
                     },
+                 "propertytypes":
+                    {
+                     "condType":"string",
+                     "condVal":"string",
+                     "condition":"string"
+                    },
                  "rotation":0,
                  "type":"NPC",
                  "visible":true,
                  "width":0,
                  "x":196,
                  "y":119
+                }, 
+                {
+                 "height":0,
+                 "id":4,
+                 "name":"pa",
+                 "properties":
+                    {
+                     "condType":"equal",
+                     "condVal":"0",
+                     "condition":"pa"
+                    },
+                 "propertytypes":
+                    {
+                     "condType":"string",
+                     "condVal":"string",
+                     "condition":"string"
+                    },
+                 "rotation":0,
+                 "type":"NPC",
+                 "visible":true,
+                 "width":0,
+                 "x":872,
+                 "y":194
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -57,12 +92,8 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":4,
+ "nextobjectid":5,
  "orientation":"orthogonal",
- "properties":
-    {
-
-    },
  "renderorder":"right-down",
  "tileheight":32,
  "tilesets":[
@@ -74,10 +105,6 @@
          "imagewidth":256,
          "margin":0,
          "name":"temp_tiles",
-         "properties":
-            {
-
-            },
          "spacing":0,
          "tilecount":16,
          "tileheight":32,
@@ -87,6 +114,14 @@
                 {
                  "worldX":"0",
                  "worldY":"0"
+                }
+            },
+         "tilepropertytypes":
+            {
+             "3":
+                {
+                 "worldX":"string",
+                 "worldY":"string"
                 }
             },
          "tilewidth":32
