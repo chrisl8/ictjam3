@@ -16,7 +16,9 @@
             this.npc = [];
             this.style = { font: "20px Arial", fill: "#ff0044", align: "center"  };
 
-            this.sprite = this.add.sprite(this.world.centerX - 250, this.world.centerY, 'lucy', 0);
+            this.sprite = new ICTJAM3.Npc('lucy', this.world.centerX - 250, this.world.centerY, this);
+            this.sprite.check = null;
+            this.world.add(this.sprite);
             this.sprite.superspeed = 1;
             this.sprite.depthVal = 2;
 
@@ -77,6 +79,7 @@
             this.stateSave.set('npc4', 0);
             this.stateSave.set('npc5', 0);
             this.stateSave.set('shaman', 0);
+            this.sprite.body.immovable = false;
         },
 
         attemptChat: function () {
@@ -330,6 +333,9 @@
         },
 
         findEntity: function (name) {
+            if (name === 'lucy') {
+                return this.sprite;
+            }
             var filtered = this.entities.children.filter(function (e) {
                 return e.name === name;
             });
