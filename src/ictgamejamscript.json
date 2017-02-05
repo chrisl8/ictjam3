@@ -267,7 +267,6 @@
       "condValue": "0",
       "talkNext": null,
       "advances": "npc2"
-
     }
   ],
   "npc3": [
@@ -278,7 +277,6 @@
       "condValue": "0",
       "talkNext": null,
       "advances": "npc3"
-
     }
   ],
   "npc4": [
@@ -289,7 +287,6 @@
       "condValue": "0",
       "talkNext": null,
       "advances": "npc4"
-
     }
   ],
   "npc5": [
@@ -300,7 +297,6 @@
       "condValue": "0",
       "talkNext": null,
       "advances": "npc5"
-
     }
   ],
   "window": [
@@ -314,115 +310,179 @@
     },
     {
       "text": "(if nothing else has been picked up) Yup, that is’t going to happen.",
-      "condition": "lucy",
-      "condType": "greaterEqual",
-      "condValue": "6",
+      "condition": "window",
+      "condType": "equal",
+      "condValue": "1",
       "talkNext": null,
       "advances": "window"
     },
     {
       "text": "I bet I could tie my dresses together and get down. My parents are already going to kill me….",
-      "condition": "haveItems",
+      "condition": "window",
       "condType": "equal",
-      "condValue": "all"
+      "condValue": "2",
+      "talkNext": null,
+      "advances": "window"
     },
     {
       "text": "Tie dresses together and climb down?”  → Yes/No",
-      "condition": "haveItems",
+      "condition": "window",
       "condType": "equal",
-      "condValue": "all"
+      "condValue": "3",
+      "talkNext": null,
+      "advances": "window"
     }
   ],
   "dresser": [
     {
+      "text": null,
+      "condition": "lucy",
+      "condType": "greaterEqual",
+      "condValue": "6",
+      "talkNext": "dresser",
+      "advances": "dresser"
+    },
+    {
       "text": "My backpack would be useful (Option to take backpack.)",
       "condition": "dresser",
       "condType": "equal",
-      "condValue": "0"
+      "condValue": "1",
+      "talkNext": null,
+      "advances": "dresser"
     },
     {
       "text": "Ew, I left this sandwich out and now it’s moldy!",
       "condition": "dresser",
       "condType": "equal",
-      "condValue": "1"
+      "condValue": "2",
+      "talkNext": null,
+      "advances": "dresser"
     },
     {
       "text": "Pocket mirror?",
-      "condition": "haveItems",
+      "condition": "dresser",
       "condType": "equal",
-      "condValue": "none"
+      "condValue": "3",
+      "talkNext": null,
+      "advances": "dresser"
     },
     {
       "text": "Pocket Knife",
-      "condition": "parentroom",
+      "condition": "dresser",
       "condType": "equal",
-      "condValue": "1"
+      "condValue": "4",
+      "talkNext": null,
+      "advances": "dresser"
     },
     {
       "text": "Couple Apples--and Dad yells at me for leaving food in my room.",
-      "condition": "parentroom",
+      "condition": "dresser",
       "condType": "equal",
-      "condValue": "1"
+      "condValue": "5",
+      "talkNext": null,
+      "advances": "dresser"
     },
     {
       "text": "Fresh Sandwich",
-      "condition": "parentroom",
+      "condition": "dresser",
       "condType": "equal",
-      "condValue": "1"
+      "condValue": "6",
+      "talkNext": null,
+      "advances": "dresser"
     }
   ],
   "bed": [
     {
+      "text": null,
+      "condition": "lucy",
+      "condType": "greaterEqual",
+      "condValue": "6",
+      "talkNext": "bed",
+      "advances": "bed"
+    },
+    {
       "text": "My sewing kit may finally be useful” Acquire ball of twine and knitting needles.",
       "condition": "bed",
       "condType": "equal",
-      "condValue": "0"
+      "condValue": "1",
+      "talkNext": null,
+      "advances": "bed"
     },
     {
       "text": "I know dad has some old camping stuff in here.” Acquire flint, tinder, small oil flask, strips of rags. and something else I will think of later.",
-      "condition": "parentroom",
+      "condition": "bed",
       "condType": "equal",
-      "condValue": "1"
+      "condValue": "1",
+      "talkNext": null,
+      "advances": "bed"
     }
   ],
   "closet": [
     {
+      "text": null,
+      "condition": "lucy",
+      "condType": "greaterEqual",
+      "condValue": "6",
+      "talkNext": "closet",
+      "advances": "closet"
+    },
+    {
       "text": "Hmmm, I have a bunch of old dresses I haven’t worn, I wonder if I can do something with these?",
       "condition": "closet",
       "condType": "equal",
-      "condValue": "0"
+      "condValue": "1",
+      "talkNext": null,
+      "advances": "closet"
     },
     {
       "text": "Hooded Cloak?",
       "condition": "closet",
       "condType": "equal",
-      "condValue": "1"
+      "condValue": "2",
+      "talkNext": null,
+      "advances": "closet"
     },
     {
       "text": "sturdy walking stick",
-      "condition": "parentroom",
+      "condition": "closet",
       "condType": "equal",
-      "condValue": "1"
+      "condValue": "3",
+      "talkNext": null,
+      "advances": "closet"
     },
     {
       "text": "Comfy Shoes",
-      "condition": "parentroom",
+      "condition": "closet",
       "condType": "equal",
-      "condValue": "1"
+      "condValue": "4",
+      "talkNext": null,
+      "advances": "closet"
     }
   ],
   "door": [
     {
+      "text": null,
+      "condition": "lucy",
+      "condType": "greaterEqual",
+      "condValue": "6",
+      "talkNext": "door",
+      "advances": "door"
+    },
+    {
       "text": "Sneak to parents room? Yes/No",
       "condition": "door",
       "condType": "equal",
-      "condValue": "0"
+      "condValue": "1",
+      "talkNext": null,
+      "advances": "door"
     },
     {
       "text": "Sneak back to your room? Yes/No",
-      "condition": "parentroom",
+      "condition": "door",
       "condType": "equal",
-      "condValue": "1"
+      "condValue": "2",
+      "talkNext": null,
+      "advances": "door"
     }
   ]
 }
