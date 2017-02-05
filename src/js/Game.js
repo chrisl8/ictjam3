@@ -88,7 +88,7 @@
             this.stateSave.set('shaman', 0);
             this.sprite.body.immovable = false;
             this.stateSave.set('dragon', 0);
-            this.stateSave.set('pendant', 1);
+            this.stateSave.set('pendant', 0);
             this.stateSave.set('end', 0);
 
         },
