@@ -514,7 +514,7 @@
       "talkNext": null,
       "advances": "door"
     }
-  ]
+  ],
     "dragon": [{
             "text": "Why have you come into my lair?!?! Have you come to try to kill me foolish human?!?!",
             "condition": "pendant",
