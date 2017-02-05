@@ -75,8 +75,8 @@
     {
       "text": "Yes, it has attacked a field of cattle outside of town. Killed almost half the herd!",
       "condition": "pa",
-      "condType": "greaterEqual",
-      "condValue": "2",
+      "condType": "equal",
+      "condValue": "3",
       "talkNext": "pa",
       "advances": "dad"
     },
@@ -101,40 +101,40 @@
     {
       "text": "Dragon? Mom, dad, what dragon?! What are you talking about!",
       "condition": "dad",
-      "condType": "greaterEqual",
+      "condType": "equal",
       "condValue": "1",
       "talkNext": "pa",
       "advances": "pa"
     },
     {
       "text": "But how many dragons have you killed? And where exactly are you from? Why should we listen to you over our shaman?!",
-      "condition": "lucy",
+      "condition": "pa",
       "condType": "equal",
-      "condValue": "1",
+      "condValue": "5",
       "talkNext": "pa",
-      "advances": "lucy"
+      "advances": "pa"
     },
     {
       "text": "But mother!",
       "condition": "lucy",
       "condType": "equal",
-      "condValue": "2",
+      "condValue": "3",
       "talkNext": "mom",
       "advances": "lucy"
     },
     {
       "text": "What are we going to do? If the dragon comes here, it will destroy the village! There has to be another way.",
-      "condition": "lucy",
+      "condition": "pa",
       "condType": "equal",
-      "condValue": "3",
+      "condValue": "5",
       "talkNext": "shaman",
-      "advances": "lucy"
+      "advances": "shaman"
     },
     {
       "text": "What do you need of me?",
       "condition": "lucy",
       "condType": "equal",
-      "condValue": "4",
+      "condValue": "5",
       "talkNext": "shaman",
       "advances": "lucy"
     },
@@ -142,7 +142,7 @@
       "text": "Mom, dad, Listen, PLEASE!",
       "condition": "lucy",
       "condType": "equal",
-      "condValue": "5",
+      "condValue": "6",
       "talkNext": "mom",
       "advances": "lucy"
     },
@@ -150,7 +150,7 @@
       "text": "I have to get out of here, but how",
       "condition": "lucy",
       "condType": "equal",
-      "condValue": "5",
+      "condValue": "7",
       "talkNext": null,
       "advances": "lucy"
     },
@@ -181,13 +181,13 @@
       "condType": "equal",
       "condValue": "2",
       "talkNext": "dad",
-      "advance": "pa"
+      "advances": "pa"
     },
     {
       "text": "I am sorry to hear that, but lucky for you I am a dragon knight from a far away land, and I can take care of this dragon for you.",
       "condition": "pa",
       "condType": "equal",
-      "condValue": "2",
+      "condValue": "3",
       "talkNext": "pa",
       "advances": "pa"
     },
@@ -195,49 +195,78 @@
       "text": "Of course, dragon hunting is a hard and expensive job. I would need some sort of compensation for this task…..",
       "condition": "pa",
       "condType": "equal",
-      "condValue": "3",
+      "condValue": "4",
       "talkNext": "shaman",
-      "advances": "pa"
+      "advances": "shaman"
+    },
+    {
+      "action": "moveright",
+      "condition": "shaman",
+      "condType": "equal",
+      "condValue": "2",
+      "advances": "shaman"
     },
     {
       "text": "CITIZENS!!!! This beast will destroy your homes and eat your children! Can you really afford not to have me take care of this beast! I am dragon knight, and this is what I do",
       "condition": "pa",
       "condType": "equal",
-      "condValue": "4",
-      "talkNext": "Lucy",
-      "advances": "pa"
+      "condValue": "5",
+      "talkNext": "lucy",
+      "advances": "lucy"
     },
     {
       "text": "Where are the parents of this...this girl?!  Who lets her speak to a knight with such disrespect?",
       "condition": "pa",
       "condType": "equal",
-      "condValue": "5",
+      "condValue": "6",
       "talkNext": "mom",
-      "advances": "pa"
+      "advances": "lucy"
     }
   ],
   "shaman": [
     {
-      "text": "Please, please everyone, I need to you calm down. I have studied dragons ever since I was a young girl there has to be a reasonable explain….",
+      "action": "arrive",
       "condition": "shaman",
       "condType": "equal",
-      "condValue": "0",
-      "talkNext": "pa",
+      "condValue": "1",
       "advances": "shaman"
+    },
+    {
+      "text": "Please, please everyone, I need to you calm down. I have studied dragons ever since I was a young girl there has to be a reasonable explain . . .",
+      "condition": "shaman",
+      "condType": "equal",
+      "condValue": "3",
+      "talkNext": "pa",
+      "advances": "pa"
     },
     {
       "text": "Oh child, thank goodness you are here. That stupid fool out there is going to get this town destroyed and no one is listening.",
       "condition": "shaman",
       "condType": "equal",
-      "condValue": "1",
+      "condValue": "4",
       "talkNext": "lucy",
       "advances": "shaman"
     },
     {
-      "text": "You are right, child. And what no one was willing to hear is that dragons rarely come near populated areas. They tend to hunt away from people, for they are intelligent creatures and know that if they stay out of sight, they will usually be left in peace. Something dire must have happened for it to come this close to our village for food. I have a tremendous task to ask you, Lucy, one that hope you will forgive me for putting on your shoulders. You are young and have always been stubborn and unwilling to accept the restrictions that our village has wanted to put on young ladies. Playing soldier with boys and climbing the tallest trees to prove you were braver than the boys. But at the same time, you were always compassionate to all around, bringing home wildlife for me to tend and heal.  Because of this, you are the only one I can trust with this task.",
+      "action": "movedown",
       "condition": "shaman",
       "condType": "equal",
-      "condValue": "2",
+      "condValue": "5",
+      "advances": "shaman"
+    },
+    {
+      "text": "You are right, child. And what no one was willing to hear is that dragons rarely come near populated areas. They tend to hunt away from people, for they are intelligent creatures and know that if they stay out of sight, they will usually be left in peace. Something dire must have happened for it to come this close to our village for food.",
+      "condition": "shaman",
+      "condType": "equal",
+      "condValue": "6",
+      "talkNext": "shaman",
+      "advances": "shaman"
+    },
+    {
+      "text": "I have a tremendous task to ask you, Lucy, one that hope you will forgive me for putting on your shoulders. You are young and have always been stubborn and unwilling to accept the restrictions that our village has wanted to put on young ladies. Playing soldier with boys and climbing the tallest trees to prove you were braver than the boys. But at the same time, you were always compassionate to all around, bringing home wildlife for me to tend and heal.  Because of this, you are the only one I can trust with this task.",
+      "condition": "shaman",
+      "condType": "equal",
+      "condValue": "7",
       "talkNext": "lucy",
       "advances": "shaman"
     },
@@ -245,13 +274,7 @@
       "text": "There is a cave not far from the village that supposedly holds a magical item that can communicate with animals and beast. It is only visible to those that are deemed pure of heart.  I myself have never been to this cave, but I know many in town know of its location. I need you to find the location of this cave and get that item. It may be the key to finding out why the dragon is attacking.  But you must hurry!",
       "condition": "shaman",
       "condType": "equal",
-      "condValue": "3"
-    },
-    {
-      "text": "There is a cave not far from the village that supposedly holds a magical item that can communicate with animals and beast. It is only visible to those that are deemed pure of heart.  I myself have never been to this cave, but I know many in town know of its location. I need you to find the location of this cave and get that item. It may be the key to finding out why the dragon is attacking.  But you must hurry!",
-      "condition": "shaman",
-      "condType": "equal",
-      "condValue": "3",
+      "condValue": "8",
       "talkNext": null,
       "advances": "shaman"
     }
