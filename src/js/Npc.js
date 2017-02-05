@@ -110,18 +110,23 @@
                     if (typeof saveStateValue === 'undefined' || saveStateValue === null) {
                         break;
                     }
+                    var cval = characterTextOptions[i].condValue;
+                    if (!isNaN(parseInt(cval))) {
+                        cval = parseInt(cval);
+                        console.log(cval);
+                    }
                     if (characterTextOptions[i].condType === 'greaterEqual') {
-                        if (saveStateValue >= Number(characterTextOptions[i].condValue)) {
+                        if (saveStateValue >= cval) {
                             dialogObj = characterTextOptions[i];
                             break;
                         }
                     } else if (characterTextOptions[i].condType === 'lessEqual') {
-                        if (saveStateValue <= Number(characterTextOptions[i].condValue)) {
+                        if (saveStateValue <= cval) {
                             dialogObj = characterTextOptions[i];
                             break;
                         }
                     } else if (characterTextOptions[i].condType === 'equal') {
-                        if (saveStateValue === Number(characterTextOptions[i].condValue)) {
+                        if (saveStateValue === cval) {
                             dialogObj = characterTextOptions[i];
                             break;
                         }
