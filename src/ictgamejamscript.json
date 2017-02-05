@@ -1,7 +1,7 @@
 ﻿{
   "mom": [
     {
-      "action": "this.x = 2000;",
+      "action": "movedown",
       "condition": "mom",
       "condType": "equal",
       "condValue": "3"

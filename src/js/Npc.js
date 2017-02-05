@@ -28,6 +28,16 @@
             this.x = 2000;
             this.y = 2000;
         }
+        this.arrive = function(){
+            this.x = 200;
+            this.y = 200;
+        }
+        this.movex = function(x){
+            this.x = this.x + x;
+        }
+        this.movey = function(y){
+            this.y = this.y + y;
+        }
         this.check = function(){
             var characterTextOptions = game.cache.getJSON('ictGameJamScript')[name];
 
@@ -58,7 +68,14 @@
                 }
             }
             if (textToSay) {
-                eval(textToSay);
+                if(textToSay == "exit") this.exit();
+                else if(textToSay == "exit") this.exit();
+                else if(textToSay == "arrive") this.exit();
+                else if(textToSay == "moveright") this.movex(100);
+                else if(textToSay == "moveleft") this.movex(-100);
+                else if(textToSay == "moveup") this.movey(-100);
+                else if(textToSay == "movedown") this.movey(100);
+//                else eval(textToSay);
             }
         }
 
