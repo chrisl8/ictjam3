@@ -280,6 +280,10 @@
             this.map.setCollisionBetween(3, 100);
             this.map.setCollisionByIndex(5, false);
             this.map.setCollisionByIndex(8, false);
+            this.map.setCollisionBetween(22, 24, false);
+            this.map.setCollisionBetween(28, 30, false);
+            this.map.setCollisionByIndex(32, false);
+            this.map.setCollisionBetween(36, 40, false);
 
             this.world.sort('depthVal');
 
