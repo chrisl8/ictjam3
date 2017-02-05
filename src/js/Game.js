@@ -122,6 +122,12 @@
             }
             this.currentDialogBox = false;
             this.chatTarget = false;
+
+            var e = this.stateSave.get('pendant');
+            if (e === 6) {
+                console.log('showing end');
+                this.showEndSplash();
+            }
         },
 
         doChat: function () {
@@ -129,6 +135,14 @@
             if ((!this.currentDialogBox.hasOwnProperty('text') || this.currentDialogBox.text === null) && this.currentDialogBox.hasOwnProperty('talkNext')) {
                 this.attemptChat();
             }
+        },
+
+        showEndSplash: function () {
+            this.endSplash = this.add.sprite(0, 0, 'end');
+            this.endSplash.alpha = 0;
+            this.endSplash.depthVal = 10;
+            var tw = this.add.tween(this.endSplash).to({alpha: 1}, 2400);
+            tw.start();
         },
 
         update: function () {
