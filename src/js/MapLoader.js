@@ -6,6 +6,9 @@ var Phaser = scope.Phaser;
 
 var EXISTING_MAPS = [
     "-1_-1",
+    "-1_-2",
+    "-1_-3",
+    "-1_-4",
     "-1_0",
     "-1_1",
     "0_0",
