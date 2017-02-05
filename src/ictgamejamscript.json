@@ -254,6 +254,13 @@
       "advances": "shaman"
     },
     {
+      "action": "movedown",
+      "condition": "shaman",
+      "condType": "equal",
+      "condValue": "5",
+      "advances": "shaman"
+    },
+    {
       "text": "Please, please everyone, I need to you calm down. I have studied dragons ever since I was a young girl there has to be a reasonable explain . . .",
       "condition": "shaman",
       "condType": "equal",
@@ -274,13 +281,6 @@
       "condType": "equal",
       "condValue": "4",
       "talkNext": "lucy",
-      "advances": "shaman"
-    },
-    {
-      "action": "movedown",
-      "condition": "shaman",
-      "condType": "equal",
-      "condValue": "5",
       "advances": "shaman"
     },
     {

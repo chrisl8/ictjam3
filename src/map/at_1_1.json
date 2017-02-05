@@ -33,11 +33,11 @@
                      "condition":"string"
                     },
                  "rotation":0,
-                 "type":"",
+                 "type":"NPC",
                  "visible":true,
                  "width":26,
-                 "x":196,
-                 "y":99
+                 "x":-74,
+                 "y":-75
                 }, 
                 {
                  "height":1,
@@ -67,11 +67,11 @@
                      "condition":"string"
                     },
                  "rotation":0,
-                 "type":"",
+                 "type":"NPC",
                  "visible":true,
                  "width":26,
-                 "x":269,
-                 "y":144
+                 "x":-33,
+                 "y":-49
                 }, 
                 {
                  "height":28,
@@ -90,11 +90,11 @@
                      "condition":"string"
                     },
                  "rotation":0,
-                 "type":"",
+                 "type":"NPC",
                  "visible":true,
                  "width":26,
-                 "x":234,
-                 "y":293
+                 "x":-45,
+                 "y":469
                 }, 
                 {
                  "height":28,
@@ -102,9 +102,9 @@
                  "name":"shaman",
                  "properties":
                     {
-                     "condType":"lessEqual",
-                     "condVal":"5",
-                     "condition":"shaman"
+                     "condType":"greaterEqual",
+                     "condVal":"6",
+                     "condition":"mom"
                     },
                  "propertytypes":
                     {
@@ -113,7 +113,7 @@
                      "condition":"string"
                     },
                  "rotation":0,
-                 "type":"",
+                 "type":"NPC",
                  "visible":true,
                  "width":26,
                  "x":613,
@@ -136,11 +136,11 @@
                      "condition":"string"
                     },
                  "rotation":0,
-                 "type":"",
+                 "type":"NPC",
                  "visible":true,
                  "width":26,
-                 "x":95,
-                 "y":334
+                 "x":-117,
+                 "y":497
                 }, 
                 {
                  "height":28,
@@ -159,11 +159,11 @@
                      "condition":"string"
                     },
                  "rotation":0,
-                 "type":"",
+                 "type":"NPC",
                  "visible":true,
                  "width":26,
-                 "x":539,
-                 "y":97
+                 "x":815,
+                 "y":-62
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -192,12 +192,12 @@
          "columns":8,
          "firstgid":1,
          "image":"..\/img\/temp_tiles.png",
-         "imageheight":64,
+         "imageheight":128,
          "imagewidth":256,
          "margin":0,
          "name":"temp_tiles",
          "spacing":0,
-         "tilecount":16,
+         "tilecount":32,
          "tileheight":32,
          "tileproperties":
             {
