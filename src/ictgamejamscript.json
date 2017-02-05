@@ -4,7 +4,7 @@
       "action": "exit",
       "condition": "mom",
       "condType": "equal",
-      "condValue": "3",
+      "condValue": "4",
       "advances": "mom"
     },
     {
@@ -28,6 +28,14 @@
       "condition": "mom",
       "condType": "equal",
       "condValue": "2",
+      "talkNext": "mom",
+      "advances": "mom"
+    },
+    {
+      "text": null,
+      "condition": "mom",
+      "condType": "equal",
+      "condValue": "3",
       "talkNext": null,
       "advances": "mom"
     },
@@ -116,9 +124,9 @@
     },
     {
       "text": "But mother!",
-      "condition": "lucy",
+      "condition": "mom",
       "condType": "equal",
-      "condValue": "3",
+      "condValue": "2",
       "talkNext": "mom",
       "advances": "lucy"
     },
