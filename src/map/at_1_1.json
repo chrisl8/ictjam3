@@ -15,7 +15,156 @@
          "draworder":"topdown",
          "height":14,
          "name":"entities",
-         "objects":[],
+         "objects":[
+                {
+                 "height":28,
+                 "id":3,
+                 "name":"npc5",
+                 "properties":
+                    {
+                     "condType":"lessEqual",
+                     "condVal":"5",
+                     "condition":"npc5"
+                    },
+                 "propertytypes":
+                    {
+                     "condType":"string",
+                     "condVal":"string",
+                     "condition":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":26,
+                 "x":196,
+                 "y":99
+                }, 
+                {
+                 "height":1,
+                 "id":5,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":293,
+                 "y":123
+                }, 
+                {
+                 "height":28,
+                 "id":6,
+                 "name":"npc4",
+                 "properties":
+                    {
+                     "condType":"lessEqual",
+                     "condVal":"5",
+                     "condition":"npc4"
+                    },
+                 "propertytypes":
+                    {
+                     "condType":"string",
+                     "condVal":"string",
+                     "condition":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":26,
+                 "x":269,
+                 "y":144
+                }, 
+                {
+                 "height":28,
+                 "id":7,
+                 "name":"npc3",
+                 "properties":
+                    {
+                     "condType":"lessEqual",
+                     "condVal":"5",
+                     "condition":"npc3"
+                    },
+                 "propertytypes":
+                    {
+                     "condType":"string",
+                     "condVal":"string",
+                     "condition":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":26,
+                 "x":234,
+                 "y":293
+                }, 
+                {
+                 "height":28,
+                 "id":8,
+                 "name":"shaman",
+                 "properties":
+                    {
+                     "condType":"lessEqual",
+                     "condVal":"5",
+                     "condition":"shaman"
+                    },
+                 "propertytypes":
+                    {
+                     "condType":"string",
+                     "condVal":"string",
+                     "condition":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":26,
+                 "x":613,
+                 "y":204
+                }, 
+                {
+                 "height":28,
+                 "id":9,
+                 "name":"npc2",
+                 "properties":
+                    {
+                     "condType":"lessEqual",
+                     "condVal":"5",
+                     "condition":"npc2"
+                    },
+                 "propertytypes":
+                    {
+                     "condType":"string",
+                     "condVal":"string",
+                     "condition":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":26,
+                 "x":95,
+                 "y":334
+                }, 
+                {
+                 "height":28,
+                 "id":10,
+                 "name":"npc2",
+                 "properties":
+                    {
+                     "condType":"lessEqual",
+                     "condVal":"5",
+                     "condition":"npc2"
+                    },
+                 "propertytypes":
+                    {
+                     "condType":"string",
+                     "condVal":"string",
+                     "condition":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":26,
+                 "x":539,
+                 "y":97
+                }],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
@@ -34,7 +183,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":3,
+ "nextobjectid":11,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tileheight":32,
@@ -42,7 +191,7 @@
         {
          "columns":8,
          "firstgid":1,
-         "image":"..\/..\/Downloads\/temp_tiles.png",
+         "image":"..\/img\/temp_tiles.png",
          "imageheight":64,
          "imagewidth":256,
          "margin":0,
