@@ -82,10 +82,11 @@
                         this.leaveChat();
                     }
                 } else {
+                    console.log('end of chat');
                     this.leaveChat();
                 }
             } else {
-                //this.sprite.chatBuddy.talk();
+                console.log('no dialog already');
                 var targetEnt = this.findCloseNPC();
                 if (targetEnt) {
                     this.chatTarget = targetEnt;
@@ -111,7 +112,7 @@
         },
 
         update: function () {
-            this.game.debug.spriteInfo(this.sprite, 32, 32);
+            //this.game.debug.spriteInfo(this.sprite, 32, 32);
             if (this.paused) {
                 return;
             }

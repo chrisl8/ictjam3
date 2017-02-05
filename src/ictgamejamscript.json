@@ -68,7 +68,7 @@
       "text": "We were so worried! Did you see the dragon?!",
       "condition": "dad",
       "condType": "equal",
-      "condValue": "1",
+      "condValue": "0",
       "talkNext": "lucy",
       "advances": "dad"
     },
@@ -101,8 +101,8 @@
     {
       "text": "Dragon? Mom, dad, what dragon?! What are you talking about!",
       "condition": "dad",
-      "condType": "equal",
-      "condValue": "0",
+      "condType": "greaterEqual",
+      "condValue": "1",
       "talkNext": null,
       "advances": "lucy"
     },

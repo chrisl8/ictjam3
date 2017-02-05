@@ -109,6 +109,7 @@
                     }
                 }
             }
+            console.log(dialogObj);
             if (dialogObj) {
                 game.currentDialogBox = dialogObj;
                 game.movementEnabled = false;
@@ -120,6 +121,7 @@
                 }
             }
             if (dialogObj.text) {
+                console.log('doing text');
                 this.text = this.addChild(new ICTJAM3.SpeechBubble(game, 10, 0, 256, dialogObj.text));
             }
         };
