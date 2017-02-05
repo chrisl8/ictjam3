@@ -4,7 +4,7 @@
       "action": "this.x = 2000;",
       "condition": "mom",
       "condType": "equal",
-      "condValue": "0"
+      "condValue": "3"
     },
     {
       "text": "Lucy, thank goodness you are ok!",
