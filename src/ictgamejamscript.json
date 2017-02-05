@@ -249,7 +249,7 @@
       "advances": "shaman"
     },
     {
-      "text": null,
+      "text": "Bye now, I'm going to eat my sandwich.",
       "condition": "shaman",
       "condType": "equal",
       "condValue": "10",
@@ -266,7 +266,7 @@
   ],
   "npc1": [
     {
-      "action": "arrive",
+      "action": "arriverand",
       "condition": "shaman",
       "condType": "equal",
       "condValue": "11",
@@ -290,7 +290,7 @@
   ],
   "npc2": [
     {
-      "action": "arrive",
+      "action": "arriverand",
       "condition": "shaman",
       "condType": "equal",
       "condValue": "11",
@@ -314,7 +314,7 @@
   ],
   "npc3": [
     {
-      "action": "arrive",
+      "action": "arriverand",
       "condition": "shaman",
       "condType": "equal",
       "condValue": "11",
@@ -338,7 +338,7 @@
   ],
   "npc4": [
     {
-      "action": "arrive",
+      "action": "arriverand",
       "condition": "shaman",
       "condType": "equal",
       "condValue": "11",
@@ -362,7 +362,7 @@
   ],
   "npc5": [
     {
-      "action": "arrive",
+      "action": "arriverand",
       "condition": "shaman",
       "condType": "equal",
       "condValue": "11",
