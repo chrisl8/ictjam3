@@ -515,4 +515,34 @@
       "advances": "door"
     }
   ]
+    "dragon": [{
+            "text": "Why have you come into my lair?!?! Have you come to try to kill me foolish human?!?!",
+            "condition": "pendant",
+            "condType": "equal",
+            "condValue": "1",
+            "talkNext": "lucy",
+            "advances": "dragon"
+        }, {
+            "text": "I am hungry, the war from the east have made the animals of the forest run.  I am out of options.",
+            "condition": "dragon",
+            "condType": "equal",
+            "condValue": "1",
+            "talkNext": "lucy",
+            "advances": "dragon"
+        }, {
+            "text": "I will agree to your terms, if your people will as well. Thank you and may us destroy this eveil together!!",
+            "condition": "dragon",
+            "condType": "equal",
+            "condValue": "2",
+            "talkNext": "lucy",
+            "advances": "end"
+        }, {
+            "text": "RAAAAWWWWWRRRRRR!!!!!!!  **You should run!!**",
+            "condition": "pendant",
+            "condType": "equal",
+            "condValue": "0"
+            
+        }
+
+    ]
 }
