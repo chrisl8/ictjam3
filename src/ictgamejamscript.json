@@ -1,6 +1,12 @@
 ﻿{
   "mom": [
     {
+      "action": "this.x = 2000;",
+      "condition": "mom",
+      "condType": "equal",
+      "condValue": "0"
+    },
+    {
       "text": "Lucy, thank goodness you are ok!",
       "condition": "mom",
       "condType": "equal",

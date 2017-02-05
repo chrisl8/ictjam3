@@ -24,6 +24,44 @@
                 clearTimeout(this.timeout);
             }
         };
+        this.exit = function(){
+            this.x = 2000;
+            this.y = 2000;
+        }
+        this.check = function(){
+            var characterTextOptions = game.cache.getJSON('ictGameJamScript')[name];
+
+            var textToSay = false;
+
+            for (var i = 0; i < characterTextOptions.length; i++) {
+                if (characterTextOptions[i].hasOwnProperty('action')) {
+
+                    if (characterTextOptions[i].hasOwnProperty('condition')) {
+                        var saveStateValue = game.stateSave.get(characterTextOptions[i].condition);
+                        if (typeof saveStateValue === 'undefined' || saveStateValue === null) {
+                            continue;
+                        }
+                        if (characterTextOptions[i].condType === 'greaterEqual') {
+                            if (saveStateValue < characterTextOptions[i].condVal) {
+                                textToSay = characterTextOptions[i].action;
+                                continue;
+                            }
+                        } else if (characterTextOptions[i].condType === 'equal') {
+                            console.log(saveStateValue);
+                            if (saveStateValue !== characterTextOptions[i].condVal) {
+                            console.log('go');
+                                textToSay = characterTextOptions[i].action;
+                                continue;
+                            }
+                        }
+                    }
+                }
+            }
+            if (textToSay) {
+                eval(textToSay);
+            }
+        }
+
         this.talk = function() {
             if(this.oneSecond == true){
                 this.hideText();

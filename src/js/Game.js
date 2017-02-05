@@ -56,7 +56,7 @@
             this.entities = this.add.group();
             this.entities.depthVal = 2;
 
-            // Test condition for mom
+            // Set conditions
             this.stateSave.set('mom', 0);
             this.stateSave.set('dad', 0);
             this.stateSave.set('npc1', 0);
@@ -72,6 +72,12 @@
             if (this.paused) {
                 return;
             }
+            for (var i = 0, len = this.entities.length; i < len; i++) {
+                this.entities.children[i].check();
+            }
+
+
+
 
             this.sprite.body.velocity.x = 0;
 
