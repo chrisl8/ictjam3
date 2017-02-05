@@ -189,6 +189,7 @@
 
             this.map.setCollisionBetween(3, 100);
             this.map.setCollisionByIndex(5, false);
+            this.map.setCollisionByIndex(8, false);
 
             this.world.sort('depthVal');
 
