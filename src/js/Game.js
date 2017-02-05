@@ -85,14 +85,11 @@
                 if (this.currentDialogBox.hasOwnProperty('talkNext') || this.currentDialogBox.talkNext === null) {
                     this.chatTarget = this.findEntity(this.currentDialogBox.talkNext);
                     if (this.chatTarget !== false) {
-                        console.log(this.chatTarget);
                         this.doChat();
                     } else {
-                        console.log('couldnt find target');
                         this.leaveChat();
                     }
                 } else {
-                    console.log('end of chat');
                     this.leaveChat();
                 }
             } else {

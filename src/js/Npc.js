@@ -41,45 +41,62 @@
             var tweenA = this.gam.add.tween(this).to( { y: old + y }, 1000, "Quart.easeOut" );
             tweenA.start();
         }
-        this.check = function(){
+
+        this.check = function() {
             var characterTextOptions = game.cache.getJSON('ictGameJamScript')[name];
-
-            var textToSay = false;
-
+            var dialogObj = false;
             for (var i = 0; i < characterTextOptions.length; i++) {
-                if (characterTextOptions[i].hasOwnProperty('action')) {
-
-                    if (characterTextOptions[i].hasOwnProperty('condition')) {
-                        var saveStateValue = game.stateSave.get(characterTextOptions[i].condition);
-                        if (typeof saveStateValue === 'undefined' || saveStateValue === null) {
-                            continue;
+                if (!characterTextOptions[i].hasOwnProperty('action')) {
+                    continue;
+                }
+                console.log('this far');
+                if (characterTextOptions[i].hasOwnProperty('condition')) {
+                    var saveStateValue = game.stateSave.get(characterTextOptions[i].condition);
+                    if (typeof saveStateValue === 'undefined' || saveStateValue === null) {
+                        break;
+                    }
+                    if (characterTextOptions[i].condType === 'greaterEqual') {
+                        if (saveStateValue >= Number(characterTextOptions[i].condValue)) {
+                            dialogObj = characterTextOptions[i];
+                            break;
                         }
-                        if (characterTextOptions[i].condType === 'greaterEqual') {
-                            if (saveStateValue <= Number(characterTextOptions[i].condValue)) {
-                                textToSay = characterTextOptions[i].action;
-                                continue;
-                            }
-                        } else if (characterTextOptions[i].condType === 'equal') {
-                            console.log(saveStateValue, characterTextOptions[i].condValue);
-                            if (saveStateValue === Number(characterTextOptions[i].condValue)) {
-                                textToSay = characterTextOptions[i].action;
-                                continue;
-                            }
+                    } else if (characterTextOptions[i].condType === 'lessEqual') {
+                        if (saveStateValue <= Number(characterTextOptions[i].condValue)) {
+                            dialogObj = characterTextOptions[i];
+                            break;
+                        }
+                    } else if (characterTextOptions[i].condType === 'equal') {
+                        if (saveStateValue === Number(characterTextOptions[i].condValue)) {
+                            dialogObj = characterTextOptions[i];
+                            break;
                         }
                     }
                 }
             }
-            if (textToSay) {
-                if(textToSay == "exit") this.exit();
-                else if(textToSay == "exit") this.exit();
-                else if(textToSay == "arrive") this.arrive();
-                else if(textToSay == "moveright") this.movex(100, this.x);
-                else if(textToSay == "moveleft") this.movex(-100, this.y);
-                else if(textToSay == "moveup") this.movey(-100);
-                else if(textToSay == "movedown") this.movey(100);
-//                else eval(textToSay);
+            console.log(dialogObj);
+            if (dialogObj) {
+                if(dialogObj == "exit") this.exit();
+                else if(dialogObj.action == "exit") this.exit();
+                else if(dialogObj.action == "arrive") this.arrive();
+                else if(dialogObj.action == "moveright") this.movex(100, this.x);
+                else if(dialogObj.action == "moveleft") this.movex(-100, this.y);
+                else if(dialogObj.action == "moveup") this.movey(-100);
+                else if(dialogObj.action == "movedown") this.movey(100);
+//                else eval(dialogObj);
             }
-        }
+            if (dialogObj.hasOwnProperty('advances')) {
+                var val = game.stateSave.get(dialogObj.advances);
+                if (typeof val === 'number') {
+                    game.stateSave.set(dialogObj.advances, val + 1);
+                }
+            }
+        };
+
+
+
+
+
+
 
         this.talk = function() {
             this.hideText();

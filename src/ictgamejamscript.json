@@ -1,10 +1,11 @@
 ﻿{
   "mom": [
     {
-      "action": "moveright",
+      "action": "exit",
       "condition": "mom",
       "condType": "equal",
-      "condValue": "3"
+      "condValue": "3",
+      "advances": "mom"
     },
     {
       "text": "Lucy, thank goodness you are ok!",
