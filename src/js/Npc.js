@@ -83,6 +83,9 @@
             var characterTextOptions = game.cache.getJSON('ictGameJamScript')[name];
             var dialogObj = false;
             for (var i = 0; i < characterTextOptions.length; i++) {
+                if (characterTextOptions[i].hasOwnProperty('action')) {
+                    continue;
+                }
                 if (characterTextOptions[i].hasOwnProperty('condition')) {
                     var saveStateValue = game.stateSave.get(characterTextOptions[i].condition);
                     if (typeof saveStateValue === 'undefined' || saveStateValue === null) {
@@ -94,14 +97,12 @@
                             break;
                         }
                     } else if (characterTextOptions[i].condType === 'lessEqual') {
-                        if (saveStateValue >= Number(characterTextOptions[i].condValue)) {
+                        if (saveStateValue <= Number(characterTextOptions[i].condValue)) {
                             dialogObj = characterTextOptions[i];
                             break;
                         }
                     } else if (characterTextOptions[i].condType === 'equal') {
-                        console.log(characterTextOptions[i].condType, saveStateValue, characterTextOptions[i].condValue);
                         if (saveStateValue === Number(characterTextOptions[i].condValue)) {
-                            console.log('.');
                             dialogObj = characterTextOptions[i];
                             break;
                         }

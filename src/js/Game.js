@@ -71,11 +71,14 @@
 
         attemptChat: function () {
             if (this.currentDialogBox !== false) {
+                this.chatTarget.hideText();
                 if (this.currentDialogBox.hasOwnProperty('talkNext') || this.currentDialogBox.talkNext === null) {
                     this.chatTarget = this.findEntity(this.currentDialogBox.talkNext);
                     if (this.chatTarget !== false) {
+                        console.log(this.chatTarget);
                         this.doChat();
                     } else {
+                        console.log('couldnt find target');
                         this.leaveChat();
                     }
                 } else {
@@ -93,7 +96,9 @@
 
         leaveChat: function () {
             this.movementEnabled = true;
-            this.chatTarget.hideText();
+            if (this.chatTarget) {
+                this.chatTarget.hideText();
+            }
             this.currentDialogBox = false;
             this.chatTarget = false;
         },
@@ -106,13 +111,13 @@
         },
 
         update: function () {
-            //this.game.debug.spriteInfo(this.sprite, 32, 32);
+            this.game.debug.spriteInfo(this.sprite, 32, 32);
             if (this.paused) {
                 return;
             }
             for (var i = 0, len = this.entities.length; i < len; i++) {
                 if(this.entities.children[i].check){
-                    this.entities.children[i].check();
+                    //this.entities.children[i].check();
                 }
             }
 
@@ -328,9 +333,7 @@
         },
 
         findCloseNPC: function () {
-            var playerTalkPos = {};
-            playerTalkPos.x = this.sprite.position.x;
-            playerTalkPos.y = this.sprite.position.y;
+            var playerTalkPos = new Phaser.Point(this.sprite.position.x, this.sprite.position.y);
             if (this.sprite.facing === 'left') {
                 playerTalkPos.x -= 32;
             } else if (this.sprite.facing === 'right') {
