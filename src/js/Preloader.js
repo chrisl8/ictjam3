@@ -16,7 +16,7 @@ ICTJAM3.Preloader.prototype = {
         this.game.load.spritesheet('dad', 'img/Dad.png', 32, 32);
         this.game.load.spritesheet('lucy', 'img/Lucy.png', 32, 32);
         this.game.load.spritesheet('pa', 'img/PA.png', 32, 32);
-        this.game.load.spritesheet('shaman', 'img/PA.png', 32, 32);
+        this.game.load.spritesheet('shaman', 'img/Shaman.png', 32, 32);
         this.game.load.spritesheet('npc1', 'img/npc1.png', 32, 32);
         this.game.load.spritesheet('npc2', 'img/npc2.png', 32, 32);
         this.game.load.spritesheet('npc3', 'img/npc3.png', 32, 32);

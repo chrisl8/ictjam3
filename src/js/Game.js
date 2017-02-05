@@ -59,7 +59,12 @@
             // Test condition for mom
             this.stateSave.set('mom', 0);
             this.stateSave.set('dad', 0);
-
+            this.stateSave.set('npc1', 0);
+            this.stateSave.set('npc2', 0);
+            this.stateSave.set('npc3', 0);
+            this.stateSave.set('npc4', 0);
+            this.stateSave.set('npc5', 0);
+            this.stateSave.set('shaman', 0);
         },
 
         update: function () {
@@ -89,7 +94,7 @@
             {
                 this.sprite.scale.setTo(1, 1);
                 this.sprite.animations.play('walkSideways');
-                this.sprite.body.velocity.x = 150;
+                this.sprite.body.velocity.x = 950;
                 if (this.facing != 'right')
                 {
                     this.facing = 'right';
@@ -251,6 +256,9 @@
 
             entities.forEach(function (ent) {
                 var conditionData = ent.properties;
+                if (typeof conditionData === 'undefined' || !conditionData) {
+                    return;
+                }
                 if (conditionData.hasOwnProperty('condition')) {
                     var val = this.stateSave.get(conditionData.condition);
                     if (typeof val === 'undefined' || val === null) {

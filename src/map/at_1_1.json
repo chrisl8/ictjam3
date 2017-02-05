@@ -81,7 +81,7 @@
                     {
                      "condType":"lessEqual",
                      "condVal":"5",
-                     "condition":"npc3"
+                     "condition":"npc2"
                     },
                  "propertytypes":
                     {
