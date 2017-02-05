@@ -341,7 +341,7 @@
       "advances": "npc5"
     },
     {
-      "text": "My necklace, oh where is my necklace???",
+      "text": "My necklace, oh where is my necklace??? I need it to talk to animals.",
       "condition": "npc5",
       "condType": "equal",
       "condValue": "1",
