@@ -25,6 +25,11 @@
                      "overlap":"pickup",
                      "pickupVar":"pendant"
                     },
+                 "propertytypes":
+                    {
+                     "overlap":"string",
+                     "pickupVar":"string"
+                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -52,10 +57,6 @@
         }],
  "nextobjectid":11,
  "orientation":"orthogonal",
- "properties":
-    {
-
-    },
  "renderorder":"right-down",
  "tileheight":32,
  "tilesets":[
@@ -67,19 +68,35 @@
          "imagewidth":256,
          "margin":0,
          "name":"temp_tiles",
-         "properties":
-            {
-
-            },
          "spacing":0,
          "tilecount":32,
          "tileheight":32,
          "tileproperties":
             {
+             "0":
+                {
+                 "condType":"equal",
+                 "condVal":"0",
+                 "condition":"pendant"
+                },
              "3":
                 {
                  "worldX":"0",
                  "worldY":"0"
+                }
+            },
+         "tilepropertytypes":
+            {
+             "0":
+                {
+                 "condType":"string",
+                 "condVal":"string",
+                 "condition":"string"
+                },
+             "3":
+                {
+                 "worldX":"string",
+                 "worldY":"string"
                 }
             },
          "tilewidth":32
