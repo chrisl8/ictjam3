@@ -135,29 +135,29 @@
       "condType": "equal",
       "condValue": "2",
       "talkNext": "mom",
-      "advances": "lucy"
+      "advances": "shaman"
     },
     {
       "text": "What are we going to do? If the dragon comes here, it will destroy the village! There has to be another way.",
-      "condition": "pa",
+      "condition": "shaman",
       "condType": "equal",
-      "condValue": "5",
+      "condValue": "4",
       "talkNext": "shaman",
       "advances": "shaman"
     },
     {
       "text": "What do you need of me?",
-      "condition": "lucy",
+      "condition": "shaman",
       "condType": "equal",
-      "condValue": "5",
+      "condValue": "7",
       "talkNext": "shaman",
-      "advances": "lucy"
+      "advances": "shaman"
     },
     {
       "text": "Mom, dad, Listen, PLEASE!",
-      "condition": "lucy",
+      "condition": "shaman",
       "condType": "equal",
-      "condValue": "6",
+      "condValue": "11",
       "talkNext": "mom",
       "advances": "lucy"
     },
@@ -258,13 +258,6 @@
       "advances": "shaman"
     },
     {
-      "action": "movedown",
-      "condition": "shaman",
-      "condType": "equal",
-      "condValue": "5",
-      "advances": "shaman"
-    },
-    {
       "text": "Please, please everyone, I need to you calm down. I have studied dragons ever since I was a young girl there has to be a reasonable explain . . .",
       "condition": "shaman",
       "condType": "equal",
@@ -291,7 +284,7 @@
       "text": "You are right, child. And what no one was willing to hear is that dragons rarely come near populated areas. They tend to hunt away from people, for they are intelligent creatures and know that if they stay out of sight, they will usually be left in peace. Something dire must have happened for it to come this close to our village for food.",
       "condition": "shaman",
       "condType": "equal",
-      "condValue": "6",
+      "condValue": "5",
       "talkNext": "shaman",
       "advances": "shaman"
     },
@@ -299,7 +292,7 @@
       "text": "I have a tremendous task to ask you, Lucy, one that hope you will forgive me for putting on your shoulders. You are young and have always been stubborn and unwilling to accept the restrictions that our village has wanted to put on young ladies. Playing soldier with boys and climbing the tallest trees to prove you were braver than the boys. But at the same time, you were always compassionate to all around, bringing home wildlife for me to tend and heal.  Because of this, you are the only one I can trust with this task.",
       "condition": "shaman",
       "condType": "equal",
-      "condValue": "7",
+      "condValue": "6",
       "talkNext": "lucy",
       "advances": "shaman"
     },
@@ -309,6 +302,21 @@
       "condType": "equal",
       "condValue": "8",
       "talkNext": null,
+      "advances": "shaman"
+    },
+    {
+      "text": null,
+      "condition": "shaman",
+      "condType": "equal",
+      "condValue": "9",
+      "talkNext": null,
+      "advances": "shaman"
+    },
+    {
+      "action": "exit",
+      "condition": "shaman",
+      "condType": "equal",
+      "condValue": "10",
       "advances": "shaman"
     }
   ],
