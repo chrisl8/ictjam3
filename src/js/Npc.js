@@ -29,10 +29,14 @@
             var tweenA = this.gam.add.tween(this).to( { x: 2000, y: 2000  }, 1000, "Quart.easeOut" );
             tweenA.start();
         }
-        this.arrive = function(){
+        this.arriveRand = function(){
             var x = (100 * Math.random() + 250);
             var y = (100 * Math.random() + 250);
             var tweenA = this.gam.add.tween(this).to( { x: x, y: y  }, 1000, "Quart.easeOut" );
+            tweenA.start();
+        }
+        this.arrive = function(){
+            var tweenA = this.gam.add.tween(this).to( { x: 250, y: 200  }, 1000, "Quart.easeOut" );
             tweenA.start();
         }
         this.movex = function(x, old){
@@ -78,6 +82,7 @@
                 if(dialogObj == "exit") this.exit();
                 else if(dialogObj.action == "exit") this.exit();
                 else if(dialogObj.action == "arrive") this.arrive();
+                else if(dialogObj.action == "arriverand") this.arriveRand();
                 else if(dialogObj.action == "moveright") this.movex(100, this.x);
                 else if(dialogObj.action == "moveleft") this.movex(-100, this.x);
                 else if(dialogObj.action == "moveup") this.movey(-150, this.y);
