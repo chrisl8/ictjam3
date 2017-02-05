@@ -358,7 +358,7 @@
             }
 
             var filtered = this.entities.children.filter(function (e) {
-                return playerTalkPos.distance(e) < 16;
+                return playerTalkPos.distance(e) < 24;
             });
             if (filtered.length < 1) {
                 return false;

@@ -49,7 +49,6 @@
                 if (!characterTextOptions[i].hasOwnProperty('action')) {
                     continue;
                 }
-                console.log('this far');
                 if (characterTextOptions[i].hasOwnProperty('condition')) {
                     var saveStateValue = game.stateSave.get(characterTextOptions[i].condition);
                     if (typeof saveStateValue === 'undefined' || saveStateValue === null) {
@@ -73,7 +72,6 @@
                     }
                 }
             }
-            console.log(dialogObj);
             if (dialogObj) {
                 if(dialogObj == "exit") this.exit();
                 else if(dialogObj.action == "exit") this.exit();
