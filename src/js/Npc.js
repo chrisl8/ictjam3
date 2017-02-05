@@ -30,6 +30,8 @@
             tweenA.start();
         }
         this.arrive = function(){
+            var x = (100 * Math.random() + 250);
+            var y = (100 * Math.random() + 250);
             var tweenA = this.gam.add.tween(this).to( { x: 250, y: 200  }, 1000, "Quart.easeOut" );
             tweenA.start();
         }
